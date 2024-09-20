@@ -194,7 +194,7 @@ ALTER TABLE [CUST_CREDIT]
 go
 
 ALTER TABLE [EMP]
-	ADD CONSTRAINT [XPKEMPLOYEE] PRIMARY KEY  CLUSTERED ([employee_number] ASC)
+	ADD CONSTRAINT [XPKEMPLOYEE] PRIMARY KEY  CLUSTERED ([EMP_number] ASC)
 go
 
 ALTER TABLE [EMP]
@@ -615,15 +615,15 @@ BEGIN
            @errmsg  varchar(255)
     /* erwin Builtin Trigger */
     /* EMP receives PAYMENT on parent delete no action */
-    /* ERWIN_RELATION:CHECKSUM="00054f48", PARENT_OWNER="", PARENT_TABLE="EMP"
+    /* ERWIN_RELATION:CHECKSUM="00054f60", PARENT_OWNER="", PARENT_TABLE="EMP"
     CHILD_OWNER="", CHILD_TABLE="PAYMENT"
     P2C_VERB_PHRASE="receives", C2P_VERB_PHRASE="is received by", 
-    FK_CONSTRAINT="receives", FK_COLUMNS="employee_number" */
+    FK_CONSTRAINT="receives", FK_COLUMNS="EMP_number" */
     IF EXISTS (
       SELECT * FROM deleted,PAYMENT
       WHERE
         /*  %JoinFKPK(PAYMENT,deleted," = "," AND") */
-        PAYMENT.employee_number = deleted.employee_number
+        PAYMENT.EMP_number = deleted.EMP_number
     )
     BEGIN
       SELECT @errno  = 30001,
@@ -641,7 +641,7 @@ BEGIN
       SELECT * FROM deleted,EMP
       WHERE
         /*  %JoinFKPK(EMP,deleted," = "," AND") */
-        EMP.supervisor = deleted.employee_number
+        EMP.supervisor = deleted.EMP_number
     )
     BEGIN
       SELECT @errno  = 30001,
@@ -677,12 +677,12 @@ BEGIN
     IF EXISTS (SELECT * FROM deleted,EMP
       WHERE
         /* %JoinFKPK(deleted,EMP," = "," AND") */
-        deleted.supervisor = EMP.employee_number AND
+        deleted.supervisor = EMP.EMP_number AND
         NOT EXISTS (
           SELECT * FROM EMP
           WHERE
             /* %JoinFKPK(EMP,EMP," = "," AND") */
-            EMP.supervisor = EMP.employee_number
+            EMP.supervisor = EMP.EMP_number
         )
     )
     BEGIN
@@ -734,7 +734,7 @@ BEGIN
   DECLARE  @numrows int,
            @nullcnt int,
            @validcnt int,
-           @insemployee_number varchar(20),
+           @insEMP_number varchar(20),
            @errno   int,
            @severity int,
            @state    int,
@@ -743,19 +743,19 @@ BEGIN
   SELECT @numrows = @@rowcount
   /* erwin Builtin Trigger */
   /* EMP receives PAYMENT on parent update no action */
-  /* ERWIN_RELATION:CHECKSUM="00064a42", PARENT_OWNER="", PARENT_TABLE="EMP"
+  /* ERWIN_RELATION:CHECKSUM="00063598", PARENT_OWNER="", PARENT_TABLE="EMP"
     CHILD_OWNER="", CHILD_TABLE="PAYMENT"
     P2C_VERB_PHRASE="receives", C2P_VERB_PHRASE="is received by", 
-    FK_CONSTRAINT="receives", FK_COLUMNS="employee_number" */
+    FK_CONSTRAINT="receives", FK_COLUMNS="EMP_number" */
   IF
     /* %ParentPK(" OR",UPDATE) */
-    UPDATE(employee_number)
+    UPDATE(EMP_number)
   BEGIN
     IF EXISTS (
       SELECT * FROM deleted,PAYMENT
       WHERE
         /*  %JoinFKPK(PAYMENT,deleted," = "," AND") */
-        PAYMENT.employee_number = deleted.employee_number
+        PAYMENT.EMP_number = deleted.EMP_number
     )
     BEGIN
       SELECT @errno  = 30005,
@@ -772,13 +772,13 @@ BEGIN
     FK_CONSTRAINT="reports_to", FK_COLUMNS="supervisor" */
   IF
     /* %ParentPK(" OR",UPDATE) */
-    UPDATE(employee_number)
+    UPDATE(EMP_number)
   BEGIN
     IF EXISTS (
       SELECT * FROM deleted,EMP
       WHERE
         /*  %JoinFKPK(EMP,deleted," = "," AND") */
-        EMP.supervisor = deleted.employee_number
+        EMP.supervisor = deleted.EMP_number
     )
     BEGIN
       SELECT @errno  = 30005,
@@ -795,7 +795,7 @@ BEGIN
     FK_CONSTRAINT="completes", FK_COLUMNS="soc_sec_number""employee_phone" */
   IF
     /* %ParentPK(" OR",UPDATE) */
-    UPDATE(employee_number)
+    UPDATE(EMP_number)
   BEGIN
     IF EXISTS (
       SELECT * FROM deleted,MO_RENT_REC
@@ -826,7 +826,7 @@ BEGIN
       FROM inserted,EMP
         WHERE
           /* %JoinFKPK(inserted,EMP) */
-          inserted.supervisor = EMP.employee_number
+          inserted.supervisor = EMP.EMP_number
     /* %NotnullFK(inserted," IS NULL","select @nullcnt = count(*) from inserted where"," AND") */
     select @nullcnt = count(*) from inserted where
       inserted.supervisor IS NULL
@@ -1624,7 +1624,7 @@ BEGIN
            @errmsg  varchar(255)
     /* erwin Builtin Trigger */
     /* PAYMENT is made on MO_RENT_REC on parent delete no action */
-    /* ERWIN_RELATION:CHECKSUM="0004c9f3", PARENT_OWNER="", PARENT_TABLE="PAYMENT"
+    /* ERWIN_RELATION:CHECKSUM="0004bb07", PARENT_OWNER="", PARENT_TABLE="PAYMENT"
     CHILD_OWNER="", CHILD_TABLE="MO_RENT_REC"
     P2C_VERB_PHRASE="is made on", C2P_VERB_PHRASE="requires", 
     FK_CONSTRAINT="is_made_on", FK_COLUMNS="payment_transaction_number" */
@@ -1691,16 +1691,16 @@ BEGIN
     /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="EMP"
     CHILD_OWNER="", CHILD_TABLE="PAYMENT"
     P2C_VERB_PHRASE="receives", C2P_VERB_PHRASE="is received by", 
-    FK_CONSTRAINT="receives", FK_COLUMNS="employee_number" */
+    FK_CONSTRAINT="receives", FK_COLUMNS="EMP_number" */
     IF EXISTS (SELECT * FROM deleted,EMP
       WHERE
         /* %JoinFKPK(deleted,EMP," = "," AND") */
-        deleted.employee_number = EMP.employee_number AND
+        deleted.EMP_number = EMP.EMP_number AND
         NOT EXISTS (
           SELECT * FROM PAYMENT
           WHERE
             /* %JoinFKPK(PAYMENT,EMP," = "," AND") */
-            PAYMENT.employee_number = EMP.employee_number
+            PAYMENT.EMP_number = EMP.EMP_number
         )
     )
     BEGIN
@@ -1738,7 +1738,7 @@ BEGIN
   SELECT @numrows = @@rowcount
   /* erwin Builtin Trigger */
   /* PAYMENT is made on MO_RENT_REC on parent update no action */
-  /* ERWIN_RELATION:CHECKSUM="0005b815", PARENT_OWNER="", PARENT_TABLE="PAYMENT"
+  /* ERWIN_RELATION:CHECKSUM="0005a6ee", PARENT_OWNER="", PARENT_TABLE="PAYMENT"
     CHILD_OWNER="", CHILD_TABLE="MO_RENT_REC"
     P2C_VERB_PHRASE="is made on", C2P_VERB_PHRASE="requires", 
     FK_CONSTRAINT="is_made_on", FK_COLUMNS="payment_transaction_number" */
@@ -1818,20 +1818,20 @@ BEGIN
   /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="EMP"
     CHILD_OWNER="", CHILD_TABLE="PAYMENT"
     P2C_VERB_PHRASE="receives", C2P_VERB_PHRASE="is received by", 
-    FK_CONSTRAINT="receives", FK_COLUMNS="employee_number" */
+    FK_CONSTRAINT="receives", FK_COLUMNS="EMP_number" */
   IF
     /* %ChildFK(" OR",UPDATE) */
-    UPDATE(employee_number)
+    UPDATE(EMP_number)
   BEGIN
     SELECT @nullcnt = 0
     SELECT @validcnt = count(*)
       FROM inserted,EMP
         WHERE
           /* %JoinFKPK(inserted,EMP) */
-          inserted.employee_number = EMP.employee_number
+          inserted.EMP_number = EMP.EMP_number
     /* %NotnullFK(inserted," IS NULL","select @nullcnt = count(*) from inserted where"," AND") */
     select @nullcnt = count(*) from inserted where
-      inserted.employee_number IS NULL
+      inserted.EMP_number IS NULL
     IF @validcnt + @nullcnt != @numrows
     BEGIN
       SELECT @errno  = 30007,
