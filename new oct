@@ -1,0 +1,62 @@
+aws dynamodb create-table ^
+	--table-name E_1;
+
+aws dynamodb put-item ^
+	--table-name E_1 ^
+	--item ^
+	{
+     "11": { "S" : "non orci "},
+     "apple": { "S" : "diam "},
+     "E_2": { "M" : {
+          "22": { "S" : "molestie "},
+          "11": { "S" : "malesuada "},
+          "bat": { "S" : "et "},
+          "E_5": { "L" : [
+               { "M" : {
+               "55": { "S" : "ac "},
+               "egg": { "S" : "massa "},
+               "22": { "S" : "nisi maximus "},
+               "11": { "S" : "risus "},
+               "E_5_E_4": { "L" : [
+                    { "M" : {
+                    "55": { "S" : "mauris "},
+                    "44": { "S" : "sodales lectus "}
+               }}
+               ]},
+               "E_4_E_5": { "L" : [
+                    { "M" : {
+                    "44": { "S" : "ornare vel sapien "},
+                    "55": { "S" : "efficitur "}
+               }}
+               ]}
+          }}
+          ]},
+          "E_3": { "L" : [
+               { "M" : {
+               "33": { "S" : "pharetra a "},
+               "cat": { "S" : "ultrices "},
+               "22": { "S" : "faucibus "},
+               "11": { "S" : "amet aliquam sed "},
+               "E_4": { "L" : [
+                    { "M" : {
+                    "44": { "S" : "vitae et "},
+                    "dog": { "S" : " arcu "},
+                    "33": { "S" : "Duis malesuada hendrerit "},
+                    "E_5_E_4": { "L" : [
+                         { "M" : {
+                         "55": { "S" : "sollicitudin "},
+                         "44": { "S" : "dolor "}
+                    }}
+                    ]},
+                    "E_4_E_5": { "L" : [
+                         { "M" : {
+                         "44": { "S" : "vel purus risus "},
+                         "55": { "S" : "pulvinar vulputate "}
+                    }}
+                    ]}
+               }}
+               ]}
+          }}
+          ]}
+     }}
+};
