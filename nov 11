@@ -1,0 +1,3106 @@
+
+SET Role transport_owner;
+
+
+DROP INDEX lookups.xif3service_level;
+
+DROP INDEX lookups.fk__service_level__passenger_care_level;
+
+DROP INDEX lookups.fk__service_level__trip_mode;
+
+DROP INDEX lookups.pk__service_level;
+
+DROP INDEX reservations.ix__trip_leg_driver_location__trip_leg_id;
+
+DROP INDEX reservations.ix__trip_leg_driver_location__driver_id;
+
+DROP INDEX reservations.pk__trip_leg_driver_location;
+
+DROP INDEX lookups.ix__rideshare_trip_leg_status__transportation_provider_id;
+
+DROP INDEX lookups.ix__rideshare_trip_leg_status__trip_leg_status_id;
+
+DROP INDEX lookups.ix__rideshare_trip_leg_status__trip_leg_status_reason_id;
+
+DROP INDEX lookups.ix__rideshare_trip_leg_status__rideshare_user_type_id;
+
+DROP INDEX lookups.pk__rideshare_trip_leg_status;
+
+DROP INDEX lookups.ux__rideshare_trip_leg_status__bc;
+
+DROP INDEX reservations.fk__trip_leg_package_status_log__trip_leg_package_status;
+
+DROP INDEX reservations.fk__trip_leg_package_status_log__trip_leg_package;
+
+DROP INDEX reservations.ux__trip_leg_package_status_log__uuid;
+
+DROP INDEX reservations.pk__trip_leg_package_status_log;
+
+DROP INDEX lookups.pk__trip_leg_package_status;
+
+DROP INDEX lookups.ux__trip_leg_package_status__bc;
+
+DROP INDEX providers.ix__vehicle_attribute__vehicle_attribute_type_id;
+
+DROP INDEX providers.ix__vehicle_attribute__vehicle_id;
+
+DROP INDEX providers.pk__vehicle_attribute;
+
+DROP INDEX reservations.ix__trip_leg_status_log__trip_leg;
+
+DROP INDEX reservations.ix__trip_leg_status_log__trip_leg_status_reason_id;
+
+DROP INDEX reservations.pk__trip_leg_status_log;
+
+DROP INDEX reservations.ix__trip_leg_phone__phone_id;
+
+DROP INDEX reservations.ix__trip_leg_phone__trip_leg_id;
+
+DROP INDEX reservations.pk__trip_leg_phone;
+
+DROP INDEX xpke_588;
+
+DROP INDEX reservations.ix__trip_leg_driver_note__trip_leg_driver_note_type;
+
+DROP INDEX reservations.pk__trip_leg_driver_note;
+
+DROP INDEX lookups.pk__trip_leg_driver_note_type;
+
+DROP INDEX lookups.ux__trip_leg_driver_note_type__bc;
+
+DROP INDEX passengers.ux__passenger_phone__uuid;
+
+DROP INDEX passengers.ix__passenger_phone__passenger_id;
+
+DROP INDEX passengers.ix__passenger_phone__passenger_phone_use_id;
+
+DROP INDEX passengers.ix__passenger_phone__phone_number_type_id;
+
+DROP INDEX passengers.pk__passenger_phone;
+
+DROP INDEX reservations.ix__trip_leg_charge__charge_type_id;
+
+DROP INDEX reservations.ix__trip_leg_charge__trip_leg_id;
+
+DROP INDEX reservations.pk__trip_leg_charge;
+
+DROP INDEX reservations.pk__rideshare_trip_leg_schedule__id;
+
+DROP INDEX reservations.ix__rideshare_trip_schedule__status_id;
+
+DROP INDEX reservations.ix__rideshare_trip_schedule__trip_id;
+
+DROP INDEX reservations.xif3rideshare_trip_leg_schedule;
+
+DROP INDEX lookups.pk__rideshare_vehicle_type__id;
+
+DROP INDEX lookups.ux__rideshare_vehicle_type__bc;
+
+DROP INDEX lookups.pk__rideshare_trip_leg_schedule_status;
+
+DROP INDEX lookups.ux__rideshare_trip_leg_schedule_status__bc;
+
+DROP INDEX reservations.fk__trip_vehicle_attribute__trip_leg;
+
+DROP INDEX reservations.ix__trip_leg_vehicle_attribute__vehicle_attribute_type_id;
+
+DROP INDEX reservations.pk__trip_leg_vehicle_attribute;
+
+DROP INDEX lookups.pk__vehicle_attribute_type;
+
+DROP INDEX lookups.ux__vehicle_attribute_type__bc;
+
+DROP INDEX reservations.fk__trip_leg_package_trip_leg__trip_leg;
+
+DROP INDEX reservations.fk__trip_leg_package_trip_leg__trip_leg_package;
+
+DROP INDEX reservations.pk__trip_leg_package_trip_leg;
+
+DROP INDEX reservations.fk__trip_leg_package__provider;
+
+DROP INDEX reservations.ux__trip_leg_package__uuid;
+
+DROP INDEX reservations.fk__trip_leg_package__trip_leg_package_reject_reason;
+
+DROP INDEX reservations.pk__trip_leg_package;
+
+DROP INDEX lookups.pk__trip_leg_package_reject_reason;
+
+DROP INDEX lookups.ux__trip_leg_package_reject_reason__bc;
+
+DROP INDEX reservations.pk__trip_leg_passenger_note;
+
+DROP INDEX lookups.pk__trip_leg_passenger_note_type;
+
+DROP INDEX lookups.ux__trip_leg_passenger_note_type__bc;
+
+DROP INDEX lookups.pk__driver_note;
+
+DROP INDEX lookups.ux__driver_note__bc;
+
+DROP INDEX reservations.ix__rideshare_trip_leg_status_log__rideshare_trip_leg_detail_id;
+
+DROP INDEX reservations.ix__rideshare_trip_leg_status_log__rideshare_user_type_id;
+
+DROP INDEX reservations.ix__rideshare_trip_leg_status_log__trip_leg_status_id;
+
+DROP INDEX reservations.ix__rideshare_trip_leg_status_log__trip_leg_status_reason_id;
+
+DROP INDEX reservations.pk__rideshare_trip_leg_status_log;
+
+DROP INDEX lookups.ix__trip_leg_status_reason__trip_leg_status_id;
+
+DROP INDEX lookups.pk__trip_leg_status_reason;
+
+DROP INDEX lookups.ux__trip_leg_status_reason__bc;
+
+DROP INDEX lookups.ux__trip_leg_status_reason__active__trip_leg_status_id__default;
+
+DROP INDEX lookups.pk__trip_leg_status;
+
+DROP INDEX lookups.ux__trip_leg_status__bc;
+
+DROP INDEX lookups.pk__rideshare_user_type;
+
+DROP INDEX lookups.ux__rideshare_user_type__bc;
+
+DROP INDEX reservations.pk__rideshare_trip_leg_detail;
+
+DROP INDEX reservations.ix__rideshare_trip_leg_detail__trip_leg_id;
+
+DROP INDEX reservations.ix__rideshare_trip_leg_detail__passenger_id;
+
+DROP INDEX reservations.ux__rideshare_trip_leg_detail__res_ref__trip_leg_ref__pass;
+
+DROP INDEX reservations.ix__trip_leg__pick_up_pax_phone_number_type_id;
+
+DROP INDEX reservations.ix__trip_leg__drop_off_pax_phone_number_type_id;
+
+DROP INDEX reservations.pk__trip_leg;
+
+DROP INDEX clients.ux__client_purpose_code__uuid;
+
+DROP INDEX clients.ix__client_purpose_code__client_id;
+
+DROP INDEX clients.ix__client_purpose_code__purpose_code_category_id;
+
+DROP INDEX clients.pk__client_purpose_code;
+
+DROP INDEX lookups.pk__purpose_code_category;
+
+DROP INDEX lookups.ux__purpose_code_category__bc;
+
+DROP INDEX reservations.ux__reservation__reservation_refference_id__passenger_id;
+
+DROP INDEX reservations.pk__reservation;
+
+DROP INDEX lookups.pk__phone_number_type;
+
+DROP INDEX lookups.ux__phone_number_type__bc;
+
+DROP INDEX lookups.pk__passenger_care_level;
+
+DROP INDEX lookups.ux__passenger_care_level__bc;
+
+DROP INDEX lookups.pk__time_zone;
+
+DROP INDEX lookups.ux__time_zone__bc;
+
+DROP INDEX clients.ix__service_segment__capitation_measure_id;
+
+DROP INDEX clients.ix__service_segment__service_plan_id;
+
+DROP INDEX clients.pk__service_segment;
+
+DROP INDEX clients.ux__service_plan__uuid;
+
+DROP INDEX clients.ix__service_plan__client_service_plan_id;
+
+DROP INDEX clients.ix__service_plan__program_group_id;
+
+DROP INDEX clients.pk__service_plan;
+
+DROP INDEX lookups.pk__trip_mode;
+
+DROP INDEX lookups.ux__trip_mode__bc;
+
+DROP INDEX providers.pk__general_transportation_provider;
+
+DROP INDEX providers.ix__driver__state_code;
+
+DROP INDEX providers.ix__driver__transportation_provider_id;
+
+DROP INDEX providers.pk__driver;
+
+DROP INDEX providers.ux__driver__drivers_license_number__transportation_provider_id;
+
+DROP INDEX providers.ix__vehicle__transportation_provider_id;
+
+DROP INDEX providers.ix__vehicle__license_plate_issued_in_state_code;
+
+DROP INDEX providers.ix__vehicle__vehicle_type_id;
+
+DROP INDEX providers.pk__vehicle;
+
+DROP INDEX providers.ux__vehicle__vehicle_vin__transportation_provider_id;
+
+DROP INDEX lookups.pk__transportation_type;
+
+DROP INDEX lookups.ux__transportation_type__bc;
+
+DROP INDEX passengers.ix__passenger_note__passenger_id;
+
+DROP INDEX passengers.ix__passenger_note__passenger_note_type_id;
+
+DROP INDEX passengers.pk__passenger_note;
+
+DROP INDEX passengers.ux__passenger__uuid;
+
+DROP INDEX passengers.ux__passenger__client_id__client_pass_id__unique_key_part;
+
+DROP INDEX passengers.xif5passenger;
+
+DROP INDEX passengers.ix__passenger__client_id;
+
+DROP INDEX passengers.ix__passenger__gender_code;
+
+DROP INDEX passengers.ix__passenger__preferred_language_id;
+
+DROP INDEX passengers.ix__passenger__source_system_id;
+
+DROP INDEX passengers.pk__passenger;
+
+DROP INDEX clients.ix__client__client_vertical_id;
+
+DROP INDEX clients.ix__client__parent_organization_id;
+
+DROP INDEX clients.pk__client;
+
+DROP INDEX clients.ux__client__bc;
+
+DROP INDEX lookups.pk__passenger_note_type;
+
+DROP INDEX lookups.ux__passenger_note_type__bc;
+
+DROP TABLE IF EXISTS lookups.service_level;
+
+DROP TABLE IF EXISTS reservations.trip_leg_driver_location;
+
+DROP TABLE IF EXISTS lookups.rideshare_trip_leg_status;
+
+DROP TABLE IF EXISTS reservations.trip_leg_package_status_log;
+
+DROP TABLE IF EXISTS lookups.trip_leg_package_status;
+
+DROP TABLE IF EXISTS providers.vehicle_attribute;
+
+DROP TABLE IF EXISTS reservations.trip_leg_status_log;
+
+DROP TABLE IF EXISTS reservations.trip_leg_phone;
+
+DROP TABLE IF EXISTS e_588;
+
+DROP TABLE IF EXISTS reservations.trip_leg_driver_note;
+
+DROP TABLE IF EXISTS lookups.trip_leg_driver_note_type;
+
+DROP TABLE IF EXISTS passengers.passenger_phone;
+
+DROP TABLE IF EXISTS reservations.trip_leg_charge;
+
+DROP TABLE IF EXISTS reservations.rideshare_trip_leg_schedule;
+
+DROP TABLE IF EXISTS lookups.rideshare_vehicle_type;
+
+DROP TABLE IF EXISTS lookups.rideshare_trip_leg_schedule_status;
+
+DROP TABLE IF EXISTS reservations.trip_leg_vehicle_attribute;
+
+DROP TABLE IF EXISTS lookups.vehicle_attribute_type;
+
+DROP TABLE IF EXISTS reservations.trip_leg_package_trip_leg;
+
+DROP TABLE IF EXISTS reservations.trip_leg_package;
+
+DROP TABLE IF EXISTS lookups.trip_leg_package_reject_reason;
+
+DROP TABLE IF EXISTS reservations.trip_leg_passenger_note;
+
+DROP TABLE IF EXISTS lookups.trip_leg_passenger_note_type;
+
+DROP TABLE IF EXISTS lookups.driver_note;
+
+DROP TABLE IF EXISTS reservations.rideshare_trip_leg_status_log;
+
+DROP TABLE IF EXISTS lookups.trip_leg_status_reason;
+
+DROP TABLE IF EXISTS lookups.trip_leg_status;
+
+DROP TABLE IF EXISTS lookups.rideshare_user_type;
+
+DROP TABLE IF EXISTS reservations.rideshare_trip_leg_detail;
+
+DROP TABLE IF EXISTS reservations.trip_leg;
+
+DROP TABLE IF EXISTS clients.client_purpose_code;
+
+DROP TABLE IF EXISTS lookups.purpose_code_category;
+
+DROP TABLE IF EXISTS reservations.reservation;
+
+DROP TABLE IF EXISTS lookups.phone_number_type;
+
+DROP TABLE IF EXISTS lookups.passenger_care_level;
+
+DROP TABLE IF EXISTS lookups.time_zone;
+
+DROP TABLE IF EXISTS clients.service_segment;
+
+DROP TABLE IF EXISTS clients.service_plan;
+
+DROP TABLE IF EXISTS lookups.trip_mode;
+
+DROP TABLE IF EXISTS providers.general_transportation_provider;
+
+DROP TABLE IF EXISTS providers.driver;
+
+DROP TABLE IF EXISTS providers.vehicle;
+
+DROP TABLE IF EXISTS lookups.transportation_type;
+
+DROP TABLE IF EXISTS passengers.passenger_note;
+
+DROP TABLE IF EXISTS passengers.passenger;
+
+DROP TABLE IF EXISTS clients.client;
+
+DROP TABLE IF EXISTS lookups.passenger_note_type;
+
+DROP FUNCTION public.trigger__passenger_service_plan();
+
+DROP FUNCTION public.trigger__user_account_support_agreement();
+
+DROP FUNCTION public.trigger__identity_access_cognito();
+
+DROP FUNCTION public.trigger__identity_access_azure_ad();
+
+DROP SEQUENCE clients.df__seq__client_contact__id;
+
+DROP SEQUENCE lookups.seq__alternate_contact_type__id;
+
+DROP SEQUENCE applications.seq__application_global_setting__id;
+
+DROP SEQUENCE lookups.seq__application_setting__id;
+
+DROP SEQUENCE lookups.seq__application_title__id;
+
+DROP SEQUENCE lookups.seq__boundary_type__id;
+
+DROP SEQUENCE lookups.seq__city_list__id;
+
+DROP SEQUENCE clients.seq__client__id;
+
+DROP SEQUENCE clients.seq__client_address__id;
+
+DROP SEQUENCE lookups.seq__client_address_use__id;
+
+DROP SEQUENCE lookups.seq__client_contact_department__id;
+
+DROP SEQUENCE lookups.seq__client_contact_role__id;
+
+DROP SEQUENCE clients.seq__client_purpose_code__id;
+
+DROP SEQUENCE lookups.seq__client_vertical__id;
+
+DROP SEQUENCE lookups.seq__communication_type__id;
+
+DROP SEQUENCE lookups.seq__correspondence_reason__id;
+
+DROP SEQUENCE lookups.seq__county_list__id;
+
+DROP SEQUENCE applications.seq__coverage_area__id;
+
+DROP SEQUENCE accounting.seq__coverage_area_boundary__id;
+
+DROP SEQUENCE applications.seq__coverage_area_history__id;
+
+DROP SEQUENCE providers.seq__daily_capacity__id;
+
+DROP SEQUENCE providers.seq__driver__id;
+
+DROP SEQUENCE lookups.seq__driver_document_type__id;
+
+DROP SEQUENCE providers.seq__driver_email__id;
+
+DROP SEQUENCE lookups.seq__driver_email_use__id;
+
+DROP SEQUENCE providers.seq__driver_phone__id;
+
+DROP SEQUENCE lookups.seq__driver_phone_use__id;
+
+DROP SEQUENCE lookups.seq__event_type_classification__id;
+
+DROP SEQUENCE lookups.seq__file_ingestion_frequency__id;
+
+DROP SEQUENCE lookups.seq__file_type__id;
+
+DROP SEQUENCE lookups.seq__frequency_day_of_week__id;
+
+DROP SEQUENCE lookups.seq__frequency_period__id;
+
+DROP SEQUENCE providers.seq__hours_of_operation__id;
+
+DROP SEQUENCE users.seq__identity_access_azure_ad_history__id;
+
+DROP SEQUENCE users.seq__identity_access_cognito_history__id;
+
+DROP SEQUENCE lookups.seq__ingestion_cron_job__id;
+
+DROP SEQUENCE lookups.seq__insurance_coverage_type__id;
+
+DROP SEQUENCE lookups.seq__insurance_limit_type__id;
+
+DROP SEQUENCE lookups.seq__insurance_strength__id;
+
+DROP SEQUENCE lookups.seq__insurance_type__id;
+
+DROP SEQUENCE lookups.seq__legal_entity_status__id;
+
+DROP SEQUENCE lookups.seq__legal_entity_type__id;
+
+DROP SEQUENCE lookups.seq__messaging_method__id;
+
+DROP SEQUENCE lookups.seq__note_type__id;
+
+DROP SEQUENCE lookups.seq__notification_method_value_type__id;
+
+DROP SEQUENCE communications.seq__notification_template__id;
+
+DROP SEQUENCE communications.seq__notification_template_variable_map__id;
+
+DROP SEQUENCE contacts.seq__opted_out_phone__id;
+
+DROP SEQUENCE contacts.seq__opted_out_phone_history__id;
+
+DROP SEQUENCE clients.seq__parent_organization__id;
+
+DROP SEQUENCE passengers.seq__passenger__id;
+
+DROP SEQUENCE passengers.seq__passenger_address__id;
+
+DROP SEQUENCE lookups.seq__passenger_address_use__id;
+
+DROP SEQUENCE lookups.seq__passenger_authorization_reason__id;
+
+DROP SEQUENCE lookups.seq__passenger_care_level__id;
+
+DROP SEQUENCE clients.seq__passenger_eligibility_legacy_setting__id;
+
+DROP SEQUENCE clients.seq__passenger_eligibility_setting__id;
+
+DROP SEQUENCE clients.seq__passenger_file_ingestion_program_setting__id;
+
+DROP SEQUENCE passengers.seq__passenger_identification__id;
+
+DROP SEQUENCE lookups.seq__passenger_identification_type__id;
+
+DROP SEQUENCE lookups.seq__passenger_note_type__id;
+
+DROP SEQUENCE passengers.seq__passenger_phone__id;
+
+DROP SEQUENCE lookups.seq__passenger_phone_use__id;
+
+DROP SEQUENCE passengers.seq__passenger_service_plan_history__id;
+
+DROP SEQUENCE users.seq__permission__id;
+
+DROP SEQUENCE lookups.seq__permission_action__id;
+
+DROP SEQUENCE lookups.seq__permission_resource__id;
+
+DROP SEQUENCE lookups.seq__permission_scope__id;
+
+DROP SEQUENCE lookups.seq__phone_number_type__id;
+
+DROP SEQUENCE lookups.seq__plan_type__id;
+
+DROP SEQUENCE lookups.seq__preferred_language__id;
+
+DROP SEQUENCE clients.seq__program_group__id;
+
+DROP SEQUENCE lookups.seq__provider_note_category__id;
+
+DROP SEQUENCE lookups.seq__purpose_code_category__id;
+
+DROP SEQUENCE lookups.seq__qualification_type__id;
+
+DROP SEQUENCE reservations.seq__reservation__id;
+
+DROP SEQUENCE reservations.seq__rideshare_trip_leg_detail__id;
+
+DROP SEQUENCE reservations.seq__rideshare_trip_leg_schedule__id;
+
+DROP SEQUENCE lookups.seq__rideshare_trip_leg_schedule_status__id;
+
+DROP SEQUENCE lookups.seq__rideshare_trip_leg_status__id;
+
+DROP SEQUENCE reservations.seq__rideshare_trip_leg_status_log__id;
+
+DROP SEQUENCE lookups.seq__rideshare_user_type__id;
+
+DROP SEQUENCE lookups.seq__rideshare_vehicle_type_id;
+
+DROP SEQUENCE clients.seq__service_plan__id;
+
+DROP SEQUENCE clients.seq__service_segment__id;
+
+DROP SEQUENCE communications.seq__sms_message_tracking__id;
+
+DROP SEQUENCE lookups.seq__sms_status__id;
+
+DROP SEQUENCE lookups.seq__source_system__id;
+
+DROP SEQUENCE applications.seq__support_agreement__id;
+
+DROP SEQUENCE lookups.seq__support_agreement_type__id;
+
+DROP SEQUENCE dba.seq__table_history__id;
+
+DROP SEQUENCE lookups.seq__time_zone__id;
+
+DROP SEQUENCE lookups.seq__transport_role_type__id;
+
+DROP SEQUENCE providers.seq__transportation_provider__id;
+
+DROP SEQUENCE providers.seq__transportation_provider_address__id;
+
+DROP SEQUENCE lookups.seq__transportation_provider_address_use__id;
+
+DROP SEQUENCE providers.seq__transportation_provider_coverage_area__id;
+
+DROP SEQUENCE providers.seq__transportation_provider_coverage_area_history__id;
+
+DROP SEQUENCE lookups.seq__transportation_provider_document_type__id;
+
+DROP SEQUENCE providers.seq__transportation_provider_email__id;
+
+DROP SEQUENCE lookups.seq__transportation_provider_email_use__id;
+
+DROP SEQUENCE providers.seq__transportation_provider_insurance__id;
+
+DROP SEQUENCE providers.seq__transportation_provider_note__id;
+
+DROP SEQUENCE providers.seq__transportation_provider_note_comment__id;
+
+DROP SEQUENCE providers.seq__transportation_provider_parent__id;
+
+DROP SEQUENCE lookups.seq__transportation_provider_pay_status__id;
+
+DROP SEQUENCE providers.seq__transportation_provider_phone__id;
+
+DROP SEQUENCE lookups.seq__transportation_provider_phone_use__id;
+
+DROP SEQUENCE lookups.seq__transportation_provider_setting_option__id;
+
+DROP SEQUENCE lookups.seq__transportation_provider_tier__id;
+
+DROP SEQUENCE users.seq__transportation_provider_user_onboarding__id;
+
+DROP SEQUENCE lookups.seq__transportation_provider_user_onboarding_status__id;
+
+DROP SEQUENCE lookups.seq__transportation_provider_user_onboarding_status__id;
+
+DROP SEQUENCE lookups.seq__transportation_type__id;
+
+DROP SEQUENCE reservations.seq__trip_leg__id;
+
+DROP SEQUENCE reservations.seq__trip_leg_charge__id;
+
+DROP SEQUENCE reservations.seq__trip_leg_driver_location__id;
+
+DROP SEQUENCE lookups.seq__trip_leg_driver_note_type__id;
+
+DROP SEQUENCE lookups.seq__trip_leg_override_reason__id;
+
+DROP SEQUENCE reservations.seq__trip_leg_package__id;
+
+DROP SEQUENCE lookups.seq__trip_leg_package_reject_reason__id;
+
+DROP SEQUENCE lookups.seq__trip_leg_package_status__id;
+
+DROP SEQUENCE reservations.seq__trip_leg_package_status_log__id;
+
+DROP SEQUENCE reservations.seq__trip_leg_package_trip_leg__id;
+
+DROP SEQUENCE lookups.seq__trip_leg_passenger_note_type__id;
+
+DROP SEQUENCE lookups.seq__trip_leg_status__id;
+
+DROP SEQUENCE reservations.seq__trip_leg_status_log__id;
+
+DROP SEQUENCE lookups.seq__trip_leg_status_reason__id;
+
+DROP SEQUENCE lookups.seq__trip_mode__id;
+
+DROP SEQUENCE lookups.seq__unsubscribe_requestor_type__id;
+
+DROP SEQUENCE users.seq__user_account__id;
+
+DROP SEQUENCE users.seq__user_account_login_log__id;
+
+DROP SEQUENCE users.seq__user_account_support_agreement_history__id;
+
+DROP SEQUENCE lookups.seq__user_category_type__id;
+
+DROP SEQUENCE users.seq__user_group__id;
+
+DROP SEQUENCE users.seq__user_role__id;
+
+DROP SEQUENCE reservations.seq__vacation__id;
+
+DROP SEQUENCE providers.seq__vehicle__id;
+
+DROP SEQUENCE lookups.seq__vehicle_attribute_type__id;
+
+DROP SEQUENCE lookups.seq__vehicle_color__id;
+
+DROP SEQUENCE lookups.seq__vehicle_document_type__id;
+
+DROP SEQUENCE lookups.seq__vehicle_type__id;
+
+DROP SEQUENCE lookups.seq__zip_code_list__id;
+
+DROP SEQUENCE topology.topology_id_seq;
+
+DROP SCHEMA IF EXISTS accounting;
+
+DROP SCHEMA IF EXISTS applications;
+
+DROP SCHEMA IF EXISTS aws_commons;
+
+DROP SCHEMA IF EXISTS aws_lambda;
+
+DROP SCHEMA IF EXISTS bk;
+
+DROP SCHEMA IF EXISTS clients;
+
+DROP SCHEMA IF EXISTS communications;
+
+DROP SCHEMA IF EXISTS contacts;
+
+DROP SCHEMA IF EXISTS dba;
+
+DROP SCHEMA IF EXISTS lookups;
+
+DROP SCHEMA IF EXISTS passengers;
+
+DROP SCHEMA IF EXISTS pg_catalog;
+
+DROP SCHEMA IF EXISTS pricing;
+
+DROP SCHEMA IF EXISTS pricing_old;
+
+DROP SCHEMA IF EXISTS providers;
+
+DROP SCHEMA IF EXISTS public;
+
+DROP SCHEMA IF EXISTS redgate;
+
+DROP SCHEMA IF EXISTS reservations;
+
+DROP SCHEMA IF EXISTS tiger;
+
+DROP SCHEMA IF EXISTS tiger_data;
+
+DROP SCHEMA IF EXISTS topology;
+
+DROP SCHEMA IF EXISTS translations;
+
+DROP SCHEMA IF EXISTS users;
+
+CREATE SCHEMA accounting;
+
+CREATE SCHEMA applications;
+
+CREATE SCHEMA aws_commons;
+
+CREATE SCHEMA aws_lambda;
+
+CREATE SCHEMA bk;
+
+CREATE SCHEMA clients;
+
+CREATE SCHEMA communications;
+
+CREATE SCHEMA contacts;
+
+CREATE SCHEMA dba;
+
+CREATE SCHEMA lookups;
+
+CREATE SCHEMA passengers;
+
+CREATE SCHEMA pg_catalog;
+
+CREATE SCHEMA pricing;
+
+CREATE SCHEMA pricing_old;
+
+CREATE SCHEMA providers;
+
+CREATE SCHEMA public;
+
+CREATE SCHEMA redgate;
+
+CREATE SCHEMA reservations;
+
+CREATE SCHEMA tiger;
+
+CREATE SCHEMA tiger_data;
+
+CREATE SCHEMA topology;
+
+CREATE SCHEMA translations;
+
+CREATE SCHEMA users;
+
+CREATE FUNCTION passengers.trigger__passenger_service_plan() 
+RETURNS trigger
+;
+
+CREATE FUNCTION users.trigger__user_account_support_agreement() 
+RETURNS trigger
+;
+
+CREATE FUNCTION users.trigger__identity_access_cognito() 
+RETURNS trigger
+;
+
+CREATE FUNCTION users.trigger__identity_access_azure_ad() 
+RETURNS trigger
+;
+
+CREATE TABLE lookups.passenger_note_type
+( 
+	passenger_note_type_id SMALLINT  NOT NULL   DEFAULT  Need Sequence,
+	passenger_note_type_name CHARACTER VARYING(100)  NOT NULL ,
+	description          CHARACTER VARYING(250)  NOT NULL ,
+	passenger_note_type_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (passenger_note_type_id),
+	 UNIQUE (passenger_note_type_bc)
+);
+
+CREATE TABLE clients.client
+( 
+	client_id            INTEGER  NOT NULL   DEFAULT  nextval('clients.seq__client__id'::regclass),
+	parent_organization_id integer  NOT NULL ,
+	client_vertical_id   SMALLINT  NOT NULL ,
+	client_abbreviation  CHARACTER VARYING(10)  NOT NULL ,
+	client_legal_name    CHARACTER VARYING(100)  NOT NULL ,
+	effective_start_date TIMESTAMP  NOT NULL ,
+	effective_end_date   TIMESTAMP  NULL ,
+	client_bc            CHARACTER VARYING(30)  NOT NULL ,
+	is_internal          boolean  NOT NULL   DEFAULT  FALSE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	client_state         CHARACTER VARYING(30)  NOT NULL ,
+	 PRIMARY KEY (client_id),
+	 UNIQUE (client_bc),
+	 FOREIGN KEY (client_vertical_id) REFERENCES lookups.client_vertical(client_vertical_id),
+ FOREIGN KEY (parent_organization_id) REFERENCES clients.parent_organization(parent_organization_id)
+);
+
+CREATE TABLE passengers.passenger
+( 
+	passenger_id         INTEGER  NOT NULL   DEFAULT  nextval('passengers.seq__passenger__id'::regclass),
+	client_id            INTEGER  NOT NULL ,
+	source_system_id     SMALLINT  NOT NULL ,
+	client_passenger_id  CHARACTER VARYING(50)  NOT NULL ,
+	passenger_first_name CHARACTER VARYING(50)  NOT NULL ,
+	passenger_middle_name CHARACTER VARYING(50)  NULL ,
+	passenger_last_name  CHARACTER VARYING(50)  NOT NULL ,
+	date_of_birth        DATE  NULL ,
+	passenger_email_address CHARACTER VARYING(255)  NULL ,
+	gender_code          CHARACTER VARYING(10)  NULL ,
+	is_internal          boolean  NOT NULL   DEFAULT  FALSE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	passenger_uuid       CHARACTER VARYING(36)  NOT NULL ,
+	passenger_state      CHARACTER VARYING(30)  NOT NULL ,
+	client_unique_key_part character varying(300)  NULL ,
+	passenger_authorization_reason_id SMALLINT  NULL ,
+	authorization_client_first_name CHARACTER VARYING(50)  NULL ,
+	authorization_client_last_name CHARACTER VARYING(50)  NULL ,
+	authorization_by_user_id INTEGER  NULL ,
+	authorization_on_utc TIMESTAMP(6)  NULL ,
+	 PRIMARY KEY (passenger_id),
+	 UNIQUE (passenger_uuid),
+	 UNIQUE (client_id,client_passenger_id,client_unique_key_part),
+	 FOREIGN KEY (passenger_authorization_reason_id) REFERENCES lookups.passenger_authorization_reason(passenger_authorization_reason_id),
+ FOREIGN KEY (client_id) REFERENCES clients.client(client_id),
+ FOREIGN KEY (gender_code) REFERENCES lookups.gender(gender_code),
+ FOREIGN KEY (source_system_id) REFERENCES lookups.source_system(source_system_id)
+);
+
+CREATE TABLE passengers.passenger_note
+( 
+	passenger_note_id    integer  NOT NULL ,
+	passenger_id         integer  NOT NULL   DEFAULT  Need Sequence,
+	passenger_note_type_id SMALLINT  NOT NULL   DEFAULT  Need Sequence,
+	comment              CHARACTER VARYING(500)  NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	is_deleted           boolean  NOT NULL   DEFAULT  FALSE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (passenger_note_id),
+	 FOREIGN KEY (passenger_id) REFERENCES passengers.passenger(passenger_id),
+ FOREIGN KEY (passenger_note_type_id) REFERENCES lookups.passenger_note_type(passenger_note_type_id)
+);
+
+CREATE TABLE lookups.transportation_type
+( 
+	transportation_type_id SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__transportation_type__id'::regclass),
+	transportation_type_name CHARACTER VARYING(30)  NOT NULL ,
+	description          CHARACTER VARYING(250)  NOT NULL ,
+	transportation_type_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (transportation_type_id),
+	 UNIQUE (transportation_type_bc)
+);
+
+CREATE TABLE providers.vehicle
+( 
+	vehicle_id           integer  NOT NULL   DEFAULT  nextval('providers.seq__vehicle__id'::regclass),
+	license_plate        character varying(10)  NULL ,
+	license_plate_issued_in_state_code character(2)  NULL ,
+	registration_expires_on date  NULL ,
+	vehicle_vin          character varying(20)  NULL ,
+	vehicle_make         character varying(20)  NOT NULL ,
+	vehicle_model        character varying(20)  NOT NULL ,
+	vehicle_year         SMALLINT  NOT NULL ,
+	is_clear_to_transport boolean  NOT NULL   DEFAULT  FALSE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	vehicle_type_id      SMALLINT  NULL ,
+	vehicle_color        CHARACTER VARYING(30)  NULL ,
+	transportation_provider_id INTEGER  NOT NULL ,
+	vehicle_state        CHARACTER VARYING(30)  NOT NULL ,
+	is_internal          boolean  NOT NULL   DEFAULT  FALSE,
+	 PRIMARY KEY (vehicle_id),
+	 UNIQUE (vehicle_vin),
+	 FOREIGN KEY (transportation_provider_id) REFERENCES providers.transportation_provider(transportation_provider_id),
+ FOREIGN KEY (license_plate_issued_in_state_code) REFERENCES lookups.state_code_list(state_code),
+ FOREIGN KEY (vehicle_type_id) REFERENCES lookups.vehicle_type(vehicle_type_id)
+);
+
+SET ANSI_NULLS ON
+SET ARITHABORT ON
+SET CONCAT_NULL_YIELDS_NULL ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+SET ANSI_WARNINGS ON
+SET NUMERIC_ROUNDABORT OFF
+CREATE TABLE providers.driver
+( 
+	driver_id            integer  NOT NULL   DEFAULT  nextval('providers.seq__driver__id'::regclass),
+	driver_first_name    CHARACTER VARYING(50)  NOT NULL ,
+	driver_middle_name   character varying(50)  NULL ,
+	driver_last_name     CHARACTER VARYING(50)  NULL ,
+	driver_date_of_birth DATE  NULL ,
+	drivers_license_number character varying(50)  NULL ,
+	drivers_license_expires_on date  NULL ,
+	driver_license_issued_in_state_code character(2)  NULL ,
+	is_clear_to_transport boolean  NOT NULL   DEFAULT  FALSE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	is_internal          boolean  NOT NULL   DEFAULT  FALSE,
+	driver_state         CHARACTER VARYING(30)  NOT NULL ,
+	provider_driver_id   character varying(128)  NULL ,
+	transportation_provider_id INTEGER  NOT NULL ,
+	 PRIMARY KEY (driver_id),
+	 UNIQUE (drivers_license_number,transportation_provider_id),
+	 FOREIGN KEY (driver_license_issued_in_state_code) REFERENCES lookups.state_code_list(state_code),
+ FOREIGN KEY (transportation_provider_id) REFERENCES providers.transportation_provider(transportation_provider_id) MATCH SIMPLE
+);
+
+CREATE TABLE providers.general_transportation_provider
+( 
+	transportation_provider_id INTEGER  NOT NULL ,
+	legal_entity_state_code character(2)  NULL ,
+	legal_entity_status_id SMALLINT  NULL ,
+	legal_entity_type_id SMALLINT  NULL ,
+	business_permit_expires_on date  NULL ,
+	owner_first_name     CHARACTER VARYING(50)  NULL ,
+	owner_last_name      CHARACTER VARYING(50)  NULL ,
+	has_received_provider_manual boolean  NOT NULL   DEFAULT  FALSE,
+	has_received_nemt_provider_manual boolean  NOT NULL   DEFAULT  FALSE,
+	has_supplier_diversity boolean  NOT NULL   DEFAULT  FALSE,
+	has_regulated_drug_testing boolean  NOT NULL   DEFAULT  FALSE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	default_driver_messaging_method_id SMALLINT  NOT NULL ,
+	messaging_method_id  SMALLINT  NOT NULL ,
+	capacity_of_trips_to_service_in_day integer  NOT NULL   DEFAULT  0,
+	npi_number           character varying(20)  NULL ,
+	employer_identification_number character varying(10)  NULL ,
+	 PRIMARY KEY (transportation_provider_id),
+	 FOREIGN KEY (transportation_provider_id) REFERENCES providers.transportation_provider(transportation_provider_id),
+ FOREIGN KEY (default_driver_messaging_method_id) REFERENCES lookups.messaging_method(messaging_method_id),
+ FOREIGN KEY (legal_entity_state_code) REFERENCES lookups.state_code_list(state_code),
+ FOREIGN KEY (legal_entity_status_id) REFERENCES lookups.legal_entity_status(legal_entity_status_id),
+ FOREIGN KEY (legal_entity_type_id) REFERENCES lookups.legal_entity_type(legal_entity_type_id),
+ FOREIGN KEY (messaging_method_id) REFERENCES lookups.messaging_method(messaging_method_id)
+);
+
+CREATE TABLE lookups.trip_mode
+( 
+	trip_mode_id         SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__trip_mode__id'::regclass),
+	trip_mode_name       CHARACTER VARYING(30)  NOT NULL ,
+	trip_mode_bc         CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (trip_mode_id),
+	 UNIQUE (trip_mode_bc)
+);
+
+CREATE TABLE clients.service_plan
+( 
+	service_plan_id      INTEGER  NOT NULL   DEFAULT  nextval('clients.seq__service_plan__id'::regclass),
+	service_plan_uuid    CHARACTER VARYING(36)  NOT NULL ,
+	program_group_id     INTEGER  NOT NULL ,
+	service_plan_name    character varying(50)  NOT NULL ,
+	client_service_plan_id character varying(50)  NOT NULL ,
+	client_service_plan_name character varying(200)  NULL ,
+	effective_start_date DATE  NOT NULL ,
+	effective_end_date   DATE  NULL ,
+	is_generic_default_plan boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	service_plan_use_order INTEGER  NULL   DEFAULT  1,
+	 PRIMARY KEY (service_plan_id),
+	 UNIQUE (service_plan_uuid),
+	,
+ FOREIGN KEY (program_group_id) REFERENCES clients.program_group(program_group_id)
+);
+
+CREATE TABLE clients.service_segment
+( 
+	service_segment_id   integer  NOT NULL   DEFAULT  nextval('clients.seq__service_segment__id'::regclass),
+	service_plan_id      integer  NOT NULL ,
+	service_segment_name VARCHAR(100)  NOT NULL ,
+	capitation_measure_id SMALLINT  NOT NULL ,
+	capitation_quantity  SMALLINT  NOT NULL ,
+	effective_start_date DATE  NOT NULL ,
+	effective_end_date   DATE  NOT NULL ,
+	is_generic_default_plan boolean  NOT NULL   DEFAULT  FALSE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (service_segment_id),
+	 FOREIGN KEY (capitation_measure_id) REFERENCES lookups.capitation_measure(capitation_measure_id),
+ FOREIGN KEY (service_plan_id) REFERENCES clients.service_plan(service_plan_id)
+);
+
+CREATE TABLE lookups.time_zone
+( 
+	time_zone_id         SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__time_zone__id'::regclass),
+	time_zone_name       CHARACTER VARYING(50)  NOT NULL ,
+	iana_standard        VARCHAR(100)  NOT NULL ,
+	time_zone_day_light  CHARACTER VARYING(10)  NOT NULL ,
+	time_zone_standard   CHARACTER VARYING(10)  NOT NULL ,
+	display_order        SMALLINT  NOT NULL   DEFAULT  0,
+	time_zone_bc         CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (time_zone_id),
+	 UNIQUE (time_zone_bc)
+);
+
+CREATE TABLE lookups.passenger_care_level
+( 
+	passenger_care_level_id SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__passenger_care_level__id'::regclass),
+	passenger_care_level_name character varying(30)  NOT NULL ,
+	passenger_care_level_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (passenger_care_level_id),
+	 UNIQUE (passenger_care_level_bc)
+);
+
+CREATE TABLE lookups.phone_number_type
+( 
+	phone_number_type_id SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__phone_number_type__id'::regclass),
+	phone_number_type_name CHARACTER VARYING(30)  NOT NULL ,
+	display_order        SMALLINT  NOT NULL   DEFAULT  0,
+	phone_number_type_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (phone_number_type_id),
+	 UNIQUE (phone_number_type_bc)
+);
+
+CREATE TABLE reservations.reservation
+( 
+	reservation_id       INTEGER  NOT NULL   DEFAULT  nextval('reservations.seq__reservation__id'::regclass),
+	reservation_reference_id CHARACTER VARYING(12)  NOT NULL ,
+	client_id            integer  NOT NULL ,
+	passenger_id         integer  NOT NULL ,
+	phone_id             integer  NOT NULL ,
+	is_internal          INTEGER  NOT NULL ,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	reservation_state    CHARACTER VARYING(30)  NOT NULL ,
+	 PRIMARY KEY (reservation_id),
+	 UNIQUE (reservation_reference_id,passenger_id),
+	 FOREIGN KEY (client_id) REFERENCES clients.client(client_id),
+ FOREIGN KEY (passenger_id) REFERENCES passengers.passenger(passenger_id),
+ FOREIGN KEY (phone_id) REFERENCES contacts.phone(phone_id)
+);
+
+CREATE TABLE lookups.purpose_code_category
+( 
+	purpose_code_category_id SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__purpose_code_category__id'::regclass),
+	purpose_code_category_name CHARACTER VARYING(50)  NOT NULL ,
+	description          CHARACTER VARYING(250)  NOT NULL ,
+	purpose_code_category_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (purpose_code_category_id),
+	 UNIQUE (purpose_code_category_bc)
+);
+
+CREATE TABLE clients.client_purpose_code
+( 
+	client_purpose_code_id INTEGER  NOT NULL   DEFAULT  nextval('clients.seq__client_purpose_code__id'::regclass),
+	client_id            integer  NOT NULL ,
+	purpose_code_category_id smallint  NOT NULL ,
+	purpose_code_name    CHARACTER VARYING(100)  NOT NULL ,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	client_purpose_code_uuid CHARACTER VARYING(36)  NOT NULL ,
+	client_purpose_code_state CHARACTER VARYING(30)  NOT NULL ,
+	 PRIMARY KEY (client_purpose_code_id),
+	 UNIQUE (client_purpose_code_uuid),
+	 FOREIGN KEY (client_id) REFERENCES clients.client(client_id),
+ FOREIGN KEY (purpose_code_category_id) REFERENCES lookups.purpose_code_category(purpose_code_category_id)
+);
+
+CREATE TABLE reservations.trip_leg
+( 
+	trip_leg_id          INTEGER  NOT NULL   DEFAULT  nextval('reservations.seq__trip_leg__id'::regclass),
+	trip_leg_reference_id CHARACTER VARYING(12)  NOT NULL ,
+	trip_leg_sequence    SMALLINT  NOT NULL ,
+	reservation_id       integer  NOT NULL ,
+	appointment_time_utc TIMESTAMP(6)  NULL ,
+	appointment_time_zone_id smallint  NULL ,
+	pick_up_due_time_utc TIMESTAMP(6)  NULL ,
+	pick_up_address_time_zone_id smallint  NULL ,
+	passenger_care_level_id smallint  NOT NULL ,
+	trip_mode_id         smallint  NOT NULL ,
+	service_plan_id      integer  NOT NULL ,
+	service_segment_id   integer  NOT NULL ,
+	purpose_code_id      integer  NOT NULL ,
+	transportation_provider_id integer  NULL ,
+	driver_id            integer  NULL ,
+	vehicle_id           integer  NULL ,
+	is_will_call         boolean  NOT NULL   DEFAULT  FALSE,
+	companion_count      SMALLINT  NOT NULL   DEFAULT  0,
+	pick_up_address_line_1 character varying(200)  NULL ,
+	pick_up_address_line_2 character varying(200)  NULL ,
+	pick_up_city         CHARACTER VARYING(100)  NULL ,
+	pick_up_state_code   character(2)  NULL ,
+	pick_up_zip_code     CHARACTER VARYING(9)  NULL ,
+	pick_up_county       CHARACTER VARYING(100)  NULL ,
+	pick_up_address_latitude NUMERIC(9,6)  NULL ,
+	pick_up_address_longitude NUMERIC(9,6)  NULL ,
+	drop_off_address_line_1 character varying(200)  NULL ,
+	drop_off_address_line_2 character varying(200)  NULL ,
+	drop_off_city        CHARACTER VARYING(100)  NULL ,
+	drop_off_state_code  character(2)  NULL ,
+	drop_off_zip_code    CHARACTER VARYING(9)  NULL ,
+	drop_off_county      CHARACTER VARYING(100)  NULL ,
+	drop_off_address_latitude NUMERIC(9,6)  NULL ,
+	drop_off_address_longitude NUMERIC(9,6)  NULL ,
+	trip_leg_state       CHARACTER VARYING(30)  NOT NULL ,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	appointment_date     TIMESTAMP  NOT NULL ,
+	transportation_type_id SMALLINT  NULL ,
+	drop_off_address_time_zone_id SMALLINT  NULL ,
+	transportation_provider_tier_id SMALLINT  NULL   DEFAULT  Need Sequence,
+	pick_up_passenger_phone_number CHARACTER VARYING(25)  NOT NULL ,
+	pick_up_passenger_phone_extension CHARACTER VARYING(10)  NULL ,
+	drop_off_passenger_phone_number CHARACTER VARYING(25)  NULL ,
+	drop_off_passenger_phone_extension CHARACTER VARYING(10)  NULL ,
+	pick_up_passenger_phone_number_type_id SMALLINT  NOT NULL ,
+	drop_off_passenger_phone_number_type_id SMALLINT  NULL ,
+	 PRIMARY KEY (trip_leg_id),
+	 FOREIGN KEY (transportation_provider_tier_id) REFERENCES lookups.transportation_provider_tier(transportation_provider_tier_id),
+ FOREIGN KEY (pick_up_passenger_phone_number_type_id) REFERENCES lookups.phone_number_type(phone_number_type_id),
+ FOREIGN KEY (drop_off_passenger_phone_number_type_id) REFERENCES lookups.phone_number_type(phone_number_type_id),
+ FOREIGN KEY (driver_id) REFERENCES providers.driver(driver_id),
+ FOREIGN KEY (passenger_care_level_id) REFERENCES lookups.passenger_care_level(passenger_care_level_id),
+ FOREIGN KEY (purpose_code_id) REFERENCES clients.client_purpose_code(client_purpose_code_id),
+ FOREIGN KEY (reservation_id) REFERENCES reservations.reservation(reservation_id),
+ FOREIGN KEY (service_plan_id) REFERENCES clients.service_plan(service_plan_id),
+ FOREIGN KEY (service_segment_id) REFERENCES clients.service_segment(service_segment_id),
+ FOREIGN KEY (drop_off_state_code) REFERENCES lookups.state_code_list(state_code),
+ FOREIGN KEY (pick_up_state_code) REFERENCES lookups.state_code_list(state_code),
+ FOREIGN KEY (appointment_time_zone_id) REFERENCES lookups.time_zone(time_zone_id),
+ FOREIGN KEY (pick_up_address_time_zone_id) REFERENCES lookups.time_zone(time_zone_id),
+ FOREIGN KEY (drop_off_address_time_zone_id) REFERENCES lookups.time_zone(time_zone_id),
+ FOREIGN KEY (transportation_provider_id) REFERENCES providers.general_transportation_provider(transportation_provider_id),
+ FOREIGN KEY (trip_mode_id) REFERENCES lookups.trip_mode(trip_mode_id),
+ FOREIGN KEY (vehicle_id) REFERENCES providers.vehicle(vehicle_id)
+);
+
+CREATE TABLE reservations.rideshare_trip_leg_detail
+( 
+	rideshare_trip_leg_detail_id INTEGER  NOT NULL   DEFAULT  nextval('reservations.seq__rideshare_trip_leg_detail__id'::regclass),
+	trip_leg_id          INTEGER  NOT NULL ,
+	reservation_reference_id CHARACTER VARYING(12)  NOT NULL ,
+	trip_leg_reference_id CHARACTER VARYING(12)  NOT NULL ,
+	passenger_uuid       CHARACTER VARYING(36)  NOT NULL ,
+	passenger_id         INTEGER  NOT NULL ,
+	ride_type            VARCHAR(100)  NOT NULL ,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	rideshare_trip_leg_detail_state CHARACTER VARYING(30)  NOT NULL ,
+	 PRIMARY KEY (rideshare_trip_leg_detail_id),
+	 UNIQUE (reservation_reference_id,trip_leg_reference_id,passenger_uuid),
+	 FOREIGN KEY (trip_leg_id) REFERENCES reservations.trip_leg(trip_leg_id),
+ FOREIGN KEY (passenger_id) REFERENCES passengers.passenger(passenger_id)
+);
+
+CREATE TABLE lookups.rideshare_user_type
+( 
+	rideshare_user_type_id SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__rideshare_user_type__id'::regclass),
+	rideshare_user_type_name CHARACTER VARYING(30)  NOT NULL ,
+	description          CHARACTER VARYING(250)  NOT NULL ,
+	rideshare_user_type_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (rideshare_user_type_id),
+	 UNIQUE (rideshare_user_type_bc)
+);
+
+CREATE TABLE lookups.trip_leg_status
+( 
+	trip_leg_status_id   SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__trip_leg_status__id'::regclass),
+	trip_leg_status_name CHARACTER VARYING(30)  NOT NULL ,
+	description          CHARACTER VARYING(250)  NOT NULL ,
+	trip_leg_status_bc   CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (trip_leg_status_id),
+	 UNIQUE (trip_leg_status_bc)
+);
+
+SET ANSI_NULLS ON
+SET ARITHABORT ON
+SET CONCAT_NULL_YIELDS_NULL ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+SET ANSI_WARNINGS ON
+SET NUMERIC_ROUNDABORT OFF
+CREATE TABLE lookups.trip_leg_status_reason
+( 
+	trip_leg_status_reason_id SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__trip_leg_status_reason__id'::regclass),
+	trip_leg_status_reason_name character varying(50)  NOT NULL ,
+	trip_leg_status_id   smallint  NOT NULL ,
+	is_default           boolean  NOT NULL   DEFAULT  FALSE,
+	trip_leg_status_reason_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (trip_leg_status_reason_id),
+	 UNIQUE (trip_leg_status_reason_bc),
+	 UNIQUE (trip_leg_status_id,is_active,is_default),
+	 FOREIGN KEY (trip_leg_status_id) REFERENCES lookups.trip_leg_status(trip_leg_status_id)
+);
+
+CREATE TABLE reservations.rideshare_trip_leg_status_log
+( 
+	rideshare_trip_leg_status_log_id integer  NOT NULL   DEFAULT  nextval('reservations.seq__rideshare_trip_leg_status_log__id'::regclass),
+	rideshare_trip_leg_detail_id INTEGER  NOT NULL ,
+	rideshare_user_type_id SMALLINT  NOT NULL ,
+	rideshare_status_reason VARCHAR(200)  NULL ,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	trip_leg_status_id   SMALLINT  NOT NULL   DEFAULT  Need Sequence,
+	trip_leg_status_reason_id SMALLINT  NOT NULL   DEFAULT  Need Sequence,
+	 PRIMARY KEY (rideshare_trip_leg_status_log_id),
+	 FOREIGN KEY (rideshare_trip_leg_detail_id) REFERENCES reservations.rideshare_trip_leg_detail(rideshare_trip_leg_detail_id),
+ FOREIGN KEY (rideshare_user_type_id) REFERENCES lookups.rideshare_user_type(rideshare_user_type_id),
+ FOREIGN KEY (trip_leg_status_id) REFERENCES lookups.trip_leg_status(trip_leg_status_id),
+ FOREIGN KEY (trip_leg_status_reason_id) REFERENCES lookups.trip_leg_status_reason(trip_leg_status_reason_id)
+);
+
+CREATE TABLE lookups.driver_note
+( 
+	driver_note_id       SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__driver_note__id'::regclass),
+	driver_note_name     CHARACTER VARYING(100)  NOT NULL ,
+	description          CHARACTER VARYING(250)  NOT NULL ,
+	driver_note_bc       CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (driver_note_id),
+	 UNIQUE (driver_note_bc)
+);
+
+CREATE TABLE lookups.trip_leg_passenger_note_type
+( 
+	trip_leg_passenger_note_type_id SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__trip_leg_passenger_note_type__id'::regclass),
+	trip_leg_passenger_note_type_name CHARACTER VARYING(100)  NULL ,
+	description          CHARACTER VARYING(250)  NOT NULL ,
+	trip_leg_passenger_note_type_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (trip_leg_passenger_note_type_id),
+	 UNIQUE (trip_leg_passenger_note_type_bc)
+);
+
+CREATE TABLE reservations.trip_leg_passenger_note
+( 
+	trip_leg_id          integer  NOT NULL ,
+	trip_leg_passenger_note_type_id SMALLINT  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (trip_leg_id,trip_leg_passenger_note_type_id),
+	 FOREIGN KEY (trip_leg_id) REFERENCES reservations.trip_leg(trip_leg_id),
+ FOREIGN KEY (trip_leg_passenger_note_type_id) REFERENCES lookups.trip_leg_passenger_note_type(trip_leg_passenger_note_type_id)
+);
+
+CREATE TABLE lookups.trip_leg_package_reject_reason
+( 
+	trip_leg_package_reject_reason_id SMALLINT  NOT NULL   DEFAULT  Need Sequence,
+	trip_leg_package_reject_reason_name CHARACTER VARYING(30)  NOT NULL ,
+	description          CHARACTER VARYING(250)  NOT NULL ,
+	trip_leg_package_reject_reason_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (trip_leg_package_reject_reason_id),
+	 UNIQUE (trip_leg_package_reject_reason_bc)
+);
+
+CREATE TABLE reservations.trip_leg_package
+( 
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	trip_leg_package_state CHARACTER VARYING(30)  NOT NULL ,
+	trip_leg_package_id  INTEGER  NOT NULL   DEFAULT  nextval('reservations.seq__trip_leg_package__id'::regclass),
+	transportation_provider_id integer  NULL ,
+	trip_leg_package_uuid CHARACTER VARYING(36)  NOT NULL ,
+	trip_leg_package_reject_reason_id smallint  NULL ,
+	 PRIMARY KEY (trip_leg_package_id),
+	 UNIQUE (trip_leg_package_uuid),
+	 FOREIGN KEY (transportation_provider_id) REFERENCES providers.general_transportation_provider(transportation_provider_id),
+ FOREIGN KEY (trip_leg_package_reject_reason_id) REFERENCES lookups.trip_leg_package_reject_reason(trip_leg_package_reject_reason_id)
+);
+
+CREATE TABLE reservations.trip_leg_package_trip_leg
+( 
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	trip_leg_id          integer  NOT NULL ,
+	trip_leg_package_id  integer  NOT NULL ,
+	 PRIMARY KEY (trip_leg_package_id,trip_leg_id),
+	 FOREIGN KEY (trip_leg_id) REFERENCES reservations.trip_leg(trip_leg_id),
+ FOREIGN KEY (trip_leg_package_id) REFERENCES reservations.trip_leg_package(trip_leg_package_id)
+);
+
+CREATE TABLE lookups.vehicle_attribute_type
+( 
+	vehicle_attribute_type_id SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__vehicle_attribute_type__id'::regclass),
+	vehicle_attribute_type_name CHARACTER VARYING(100)  NOT NULL ,
+	display_order        SMALLINT  NOT NULL   DEFAULT  0,
+	vehicle_attribute_type_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (vehicle_attribute_type_id),
+	 UNIQUE (vehicle_attribute_type_bc)
+);
+
+CREATE TABLE reservations.trip_leg_vehicle_attribute
+( 
+	trip_leg_id          INTEGER  NOT NULL ,
+	vehicle_attribute_type_id smallint  NOT NULL ,
+	is_deleted           boolean  NOT NULL   DEFAULT  FALSE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (vehicle_attribute_type_id,trip_leg_id),
+	 FOREIGN KEY (trip_leg_id) REFERENCES reservations.trip_leg(trip_leg_id),
+ FOREIGN KEY (vehicle_attribute_type_id) REFERENCES lookups.vehicle_attribute_type(vehicle_attribute_type_id)
+);
+
+CREATE TABLE lookups.rideshare_trip_leg_schedule_status
+( 
+	rideshare_trip_leg_schedule_status_id SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__rideshare_trip_leg_schedule_status__id'::regclass),
+	rideshare_trip_leg_schedule_status_name CHARACTER VARYING(100)  NULL ,
+	description          CHARACTER VARYING(250)  NOT NULL ,
+	rideshare_trip_leg_schedule_status_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (rideshare_trip_leg_schedule_status_id),
+	 UNIQUE (rideshare_trip_leg_schedule_status_bc)
+);
+
+CREATE TABLE lookups.rideshare_vehicle_type
+( 
+	rideshare_vehicle_type_id BIGINT  NOT NULL ,
+	rideshare_vehicle_type_name CHARACTER VARYING(50)  NULL ,
+	rideshare_vehicle_type_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (rideshare_vehicle_type_id),
+	 UNIQUE (rideshare_vehicle_type_bc)
+);
+
+CREATE TABLE reservations.rideshare_trip_leg_schedule
+( 
+	rideshare_trip_leg_schedule_id INTEGER  NOT NULL   DEFAULT  nextval('reservations.seq__rideshare_trip_leg_schedule__id'::regclass),
+	rideshare_acknowledged_on_utc TIMESTAMP  NULL ,
+	rideshare_trip_leg_schedule_status_id SMALLINT  NULL ,
+	trip_leg_id          INTEGER  NULL ,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	rideshare_trip_leg_schedule_state CHARACTER VARYING(30)  NOT NULL ,
+	rideshare_vehicle_type_id BIGINT  NULL   DEFAULT  Need Sequence,
+	 PRIMARY KEY (rideshare_trip_leg_schedule_id),
+	 FOREIGN KEY (rideshare_trip_leg_schedule_status_id) REFERENCES lookups.rideshare_trip_leg_schedule_status(rideshare_trip_leg_schedule_status_id),
+ FOREIGN KEY (trip_leg_id) REFERENCES reservations.trip_leg(trip_leg_id),
+ FOREIGN KEY (rideshare_vehicle_type_id) REFERENCES lookups.rideshare_vehicle_type(rideshare_vehicle_type_id)
+);
+
+CREATE TABLE reservations.trip_leg_charge
+( 
+	trip_leg_charge_id   integer  NOT NULL ,
+	trip_leg_id          integer  NOT NULL   DEFAULT  Need Sequence,
+	charge_type_id       SMALLINT  NOT NULL   DEFAULT  Need Sequence,
+	quantity             DECIMAL(9,2)  NOT NULL   DEFAULT  FALSE,
+	rate                 NUMERIC(9,2)  NOT NULL   DEFAULT  0.00,
+	payment_amount       NUMERIC(9,2)  NOT NULL   DEFAULT  0.00,
+	override_amount      NUMERIC(9,2)  NOT NULL   DEFAULT  0.00,
+	cpt_code             VARCHAR(10)  NULL ,
+	is_cancelled         boolean  NOT NULL   DEFAULT  FALSE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (trip_leg_charge_id),
+	 FOREIGN KEY (charge_type_id) REFERENCES lookups.charge_type(charge_type_id),
+ FOREIGN KEY (trip_leg_id) REFERENCES reservations.trip_leg(trip_leg_id)
+);
+
+CREATE TABLE passengers.passenger_phone
+( 
+	passenger_phone_id   INTEGER  NOT NULL   DEFAULT  nextval('passengers.seq__passenger_phone__id'::regclass),
+	passenger_id         integer  NOT NULL ,
+	passenger_phone_use_id smallint  NOT NULL ,
+	has_sms_consent      boolean  NOT NULL   DEFAULT  FALSE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	passenger_phone_state CHARACTER VARYING(30)  NOT NULL ,
+	phone_number         CHARACTER VARYING(25)  NOT NULL ,
+	phone_extension      CHARACTER VARYING(10)  NULL ,
+	phone_number_type_id smallint  NOT NULL ,
+	passenger_phone_uuid CHARACTER VARYING(36)  NOT NULL ,
+	 PRIMARY KEY (passenger_phone_id),
+	 UNIQUE (passenger_phone_uuid),
+	 FOREIGN KEY (passenger_id) REFERENCES passengers.passenger(passenger_id),
+ FOREIGN KEY (passenger_phone_use_id) REFERENCES lookups.passenger_phone_use(passenger_phone_use_id),
+ FOREIGN KEY (phone_number_type_id) REFERENCES lookups.phone_number_type(phone_number_type_id)
+);
+
+CREATE TABLE lookups.trip_leg_driver_note_type
+( 
+	trip_leg_driver_note_type_id SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__trip_leg_driver_note_type__id'::regclass),
+	trip_leg_driver_note_type_name CHARACTER VARYING(100)  NULL ,
+	description          CHARACTER VARYING(250)  NOT NULL ,
+	trip_leg_driver_note_type_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (trip_leg_driver_note_type_id),
+	 UNIQUE (trip_leg_driver_note_type_bc)
+);
+
+CREATE TABLE reservations.trip_leg_driver_note
+( 
+	trip_leg_id          integer  NOT NULL ,
+	trip_leg_driver_note_type_id SMALLINT  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (trip_leg_id,trip_leg_driver_note_type_id),
+	 FOREIGN KEY (trip_leg_driver_note_type_id) REFERENCES lookups.trip_leg_driver_note_type(trip_leg_driver_note_type_id),
+ FOREIGN KEY (trip_leg_id) REFERENCES reservations.trip_leg(trip_leg_id)
+);
+
+CREATE TABLE e_588;
+
+CREATE TABLE reservations.trip_leg_phone
+( 
+	trip_leg_phone_id    integer  NOT NULL ,
+	trip_leg_id          integer  NOT NULL ,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	phone_id             integer  NOT NULL ,
+	 PRIMARY KEY (trip_leg_phone_id),
+	 FOREIGN KEY (phone_id) REFERENCES contacts.phone(phone_id)
+);
+
+CREATE TABLE reservations.trip_leg_status_log
+( 
+	trip_leg_status_id   smallint  NOT NULL ,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	trip_leg_status_log_uuid CHARACTER VARYING(36)  NOT NULL ,
+	trip_leg_id          INTEGER  NOT NULL ,
+	trip_leg_status_log_id integer  NOT NULL   DEFAULT  nextval('lookups.seq__trip_leg_status__id'::regclass),
+	trip_leg_status_reason_id SMALLINT  NOT NULL ,
+	 FOREIGN KEY (trip_leg_id) REFERENCES reservations.trip_leg(trip_leg_id),
+ FOREIGN KEY (trip_leg_status_reason_id) REFERENCES lookups.trip_leg_status_reason(trip_leg_status_reason_id),
+ FOREIGN KEY (trip_leg_status_id) REFERENCES lookups.trip_leg_status(trip_leg_status_id)
+);
+
+CREATE TABLE providers.vehicle_attribute
+( 
+	vehicle_id           integer  NOT NULL ,
+	vehicle_attribute_type_id SMALLINT  NOT NULL ,
+	quantity             INTEGER  NOT NULL ,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	vehicle_attribute_state CHARACTER VARYING(30)  NOT NULL ,
+	 PRIMARY KEY (vehicle_id,vehicle_attribute_type_id),
+	 FOREIGN KEY (vehicle_attribute_type_id) REFERENCES lookups.vehicle_attribute_type(vehicle_attribute_type_id),
+ FOREIGN KEY (vehicle_id) REFERENCES providers.vehicle(vehicle_id)
+);
+
+CREATE TABLE lookups.trip_leg_package_status
+( 
+	trip_leg_package_status_id SMALLINT  NOT NULL   DEFAULT  nextval('lookups.seq__trip_leg_package_status__id'::regclass),
+	trip_leg_package_status_name CHARACTER VARYING(30)  NOT NULL ,
+	description          CHARACTER VARYING(250)  NOT NULL ,
+	trip_leg_package_status_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	 PRIMARY KEY (trip_leg_package_status_id),
+	 UNIQUE (trip_leg_package_status_bc)
+);
+
+CREATE TABLE reservations.trip_leg_package_status_log
+( 
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	trip_leg_package_status_log_uuid CHARACTER VARYING(36)  NOT NULL ,
+	trip_leg_package_status_log_id integer  NOT NULL   DEFAULT  nextval('lookups.seq__trip_leg_package_status_log__id'::regclass),
+	trip_leg_package_status_id smallint  NULL   DEFAULT  Need Sequence,
+	trip_leg_package_id  integer  NULL   DEFAULT  Need Sequence,
+	 PRIMARY KEY (trip_leg_package_status_log_id),
+	 UNIQUE (trip_leg_package_status_log_uuid),
+	 FOREIGN KEY (trip_leg_package_status_id) REFERENCES lookups.trip_leg_package_status(trip_leg_package_status_id),
+ FOREIGN KEY (trip_leg_package_id) REFERENCES reservations.trip_leg_package(trip_leg_package_id)
+);
+
+CREATE TABLE lookups.rideshare_trip_leg_status
+( 
+	trip_leg_status_id   SMALLINT  NOT NULL ,
+	rideshare_status_name CHARACTER VARYING(100)  NOT NULL ,
+	description          CHARACTER VARYING(250)  NOT NULL ,
+	rideshare_trip_leg_status_bc CHARACTER VARYING(30)  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	transportation_provider_id INTEGER  NOT NULL ,
+	trip_leg_status_reason_id SMALLINT  NOT NULL ,
+	rideshare_user_type_id SMALLINT  NOT NULL ,
+	rideshare_trip_leg_status_id SMALLINT  NOT NULL   DEFAULT  Need Sequence,
+	 PRIMARY KEY (rideshare_trip_leg_status_id),
+	 UNIQUE (rideshare_trip_leg_status_bc),
+	 FOREIGN KEY (transportation_provider_id) REFERENCES providers.general_transportation_provider(transportation_provider_id),
+ FOREIGN KEY (trip_leg_status_id) REFERENCES lookups.trip_leg_status(trip_leg_status_id),
+ FOREIGN KEY (trip_leg_status_reason_id) REFERENCES lookups.trip_leg_status_reason(trip_leg_status_reason_id),
+ FOREIGN KEY (rideshare_user_type_id) REFERENCES lookups.rideshare_user_type(rideshare_user_type_id)
+);
+
+CREATE TABLE reservations.trip_leg_driver_location
+( 
+	trip_leg_driver_location_id BIGINT  NOT NULL   DEFAULT  nextval('reservations.seq__trip_leg_driver_location__id'::regclass),
+	driver_id            integer  NOT NULL ,
+	created_by_user_id   INTEGER  NOT NULL ,
+	latitude             NUMERIC(9,6)  NOT NULL ,
+	longitude            NUMERIC(9,6)  NOT NULL ,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	trip_leg_id          INTEGER  NULL ,
+	 PRIMARY KEY (trip_leg_driver_location_id),
+	 FOREIGN KEY (trip_leg_id) REFERENCES reservations.trip_leg(trip_leg_id),
+ FOREIGN KEY (driver_id) REFERENCES providers.driver(driver_id)
+);
+
+CREATE TABLE lookups.service_level
+( 
+	passenger_care_level_id smallint  NOT NULL ,
+	trip_mode_id         smallint  NOT NULL ,
+	is_active            boolean  NOT NULL   DEFAULT  TRUE,
+	created_on_utc       TIMESTAMP(6)  NOT NULL   DEFAULT  (now() AT TIME ZONE 'utc'::text),
+	created_by_user_id   INTEGER  NOT NULL ,
+	modified_on_utc      TIMESTAMP(6)  NULL ,
+	modified_by_user_id  INTEGER  NULL ,
+	service_level_id     SMALLINT  NOT NULL ,
+	 PRIMARY KEY (passenger_care_level_id,trip_mode_id,service_level_id),
+	 FOREIGN KEY (service_level_id) REFERENCES lookups.vehicle_type(vehicle_type_id),
+ FOREIGN KEY (passenger_care_level_id) REFERENCES lookups.passenger_care_level(passenger_care_level_id),
+ FOREIGN KEY (trip_mode_id) REFERENCES lookups.trip_mode(trip_mode_id)
+);
+
+CREATE INDEX ix__client__client_vertical_id ON clients.client
+( 
+	client_vertical_id ASC
+);
+
+CREATE INDEX ix__client__parent_organization_id ON clients.client
+( 
+	parent_organization_id ASC
+);
+
+CREATE INDEX xif5passenger ON passengers.passenger
+( 
+	passenger_authorization_reason_id ASC
+);
+
+CREATE INDEX ix__passenger__client_id ON passengers.passenger
+( 
+	client_id ASC
+);
+
+CREATE INDEX ix__passenger__gender_code ON passengers.passenger
+( 
+	gender_code ASC
+);
+
+CREATE INDEX ix__passenger__source_system_id ON passengers.passenger
+( 
+	source_system_id ASC
+);
+
+CREATE INDEX ix__passenger_note__passenger_id ON passengers.passenger_note
+( 
+	passenger_id ASC
+);
+
+CREATE INDEX ix__passenger_note__passenger_note_type_id ON passengers.passenger_note
+( 
+	passenger_note_type_id ASC
+);
+
+CREATE INDEX ix__vehicle__transportation_provider_id ON providers.vehicle
+( 
+	transportation_provider_id ASC
+);
+
+CREATE INDEX ix__vehicle__license_plate_issued_in_state_code ON providers.vehicle
+( 
+	license_plate_issued_in_state_code ASC
+);
+
+CREATE INDEX ix__vehicle__vehicle_type_id ON providers.vehicle
+( 
+	vehicle_type_id ASC
+);
+
+CREATE INDEX ix__driver__state_code ON providers.driver
+( 
+	driver_license_issued_in_state_code ASC
+);
+
+CREATE INDEX ix__driver__transportation_provider_id ON providers.driver
+( 
+	transportation_provider_id ASC
+);
+
+CREATE INDEX ix__service_plan__program_group_id ON clients.service_plan
+( 
+	program_group_id ASC
+);
+
+CREATE INDEX ix__service_segment__capitation_measure_id ON clients.service_segment
+( 
+	capitation_measure_id ASC
+);
+
+CREATE INDEX ix__service_segment__service_plan_id ON clients.service_segment
+( 
+	service_plan_id ASC
+);
+
+CREATE INDEX ix__client_purpose_code__client_id ON clients.client_purpose_code
+( 
+	client_id ASC
+);
+
+CREATE INDEX ix__client_purpose_code__purpose_code_category_id ON clients.client_purpose_code
+( 
+	purpose_code_category_id ASC
+);
+
+CREATE INDEX ix__trip_leg__pick_up_pax_phone_number_type_id ON reservations.trip_leg
+( 
+	pick_up_passenger_phone_number_type_id ASC
+);
+
+CREATE INDEX ix__trip_leg__drop_off_pax_phone_number_type_id ON reservations.trip_leg
+( 
+	drop_off_passenger_phone_number_type_id ASC
+);
+
+CREATE INDEX ix__rideshare_trip_leg_detail__trip_leg_id ON reservations.rideshare_trip_leg_detail
+( 
+	trip_leg_id ASC
+);
+
+CREATE INDEX ix__rideshare_trip_leg_detail__passenger_id ON reservations.rideshare_trip_leg_detail
+( 
+	passenger_id ASC
+);
+
+CREATE INDEX ix__trip_leg_status_reason__trip_leg_status_id ON lookups.trip_leg_status_reason
+( 
+	trip_leg_status_id ASC
+);
+
+CREATE INDEX ix__rideshare_trip_leg_status_log__rideshare_trip_leg_detail_id ON reservations.rideshare_trip_leg_status_log
+( 
+	rideshare_trip_leg_detail_id ASC
+);
+
+CREATE INDEX ix__rideshare_trip_leg_status_log__rideshare_user_type_id ON reservations.rideshare_trip_leg_status_log
+( 
+	rideshare_user_type_id ASC
+);
+
+CREATE INDEX ix__rideshare_trip_leg_status_log__trip_leg_status_id ON reservations.rideshare_trip_leg_status_log
+( 
+	trip_leg_status_id ASC
+);
+
+CREATE INDEX ix__rideshare_trip_leg_status_log__trip_leg_status_reason_id ON reservations.rideshare_trip_leg_status_log
+( 
+	trip_leg_status_reason_id ASC
+);
+
+CREATE INDEX fk__trip_leg_package__provider ON reservations.trip_leg_package
+( 
+	transportation_provider_id ASC
+);
+
+CREATE INDEX fk__trip_leg_package__trip_leg_package_reject_reason ON reservations.trip_leg_package
+( 
+	trip_leg_package_reject_reason_id ASC
+);
+
+CREATE INDEX fk__trip_leg_package_trip_leg__trip_leg ON reservations.trip_leg_package_trip_leg
+( 
+	trip_leg_id ASC
+);
+
+CREATE INDEX fk__trip_leg_package_trip_leg__trip_leg_package ON reservations.trip_leg_package_trip_leg
+( 
+	trip_leg_package_id ASC
+);
+
+CREATE INDEX fk__trip_vehicle_attribute__trip_leg ON reservations.trip_leg_vehicle_attribute
+( 
+	trip_leg_id ASC
+);
+
+CREATE INDEX ix__trip_leg_vehicle_attribute__vehicle_attribute_type_id ON reservations.trip_leg_vehicle_attribute
+( 
+	vehicle_attribute_type_id ASC
+);
+
+CREATE INDEX ix__rideshare_trip_schedule__status_id ON reservations.rideshare_trip_leg_schedule
+( 
+	rideshare_trip_leg_schedule_status_id ASC
+);
+
+CREATE INDEX ix__rideshare_trip_schedule__trip_id ON reservations.rideshare_trip_leg_schedule
+( 
+	trip_leg_id ASC
+);
+
+CREATE INDEX xif3rideshare_trip_leg_schedule ON reservations.rideshare_trip_leg_schedule
+( 
+	rideshare_vehicle_type_id ASC
+);
+
+CREATE INDEX ix__trip_leg_charge__charge_type_id ON reservations.trip_leg_charge
+( 
+	charge_type_id ASC
+);
+
+CREATE INDEX ix__trip_leg_charge__trip_leg_id ON reservations.trip_leg_charge
+( 
+	trip_leg_id ASC
+);
+
+CREATE INDEX ix__passenger_phone__passenger_id ON passengers.passenger_phone
+( 
+	passenger_id ASC
+);
+
+CREATE INDEX ix__passenger_phone__passenger_phone_use_id ON passengers.passenger_phone
+( 
+	passenger_phone_use_id ASC
+);
+
+CREATE INDEX ix__passenger_phone__phone_number_type_id ON passengers.passenger_phone
+( 
+	phone_number_type_id ASC
+);
+
+CREATE INDEX ix__trip_leg_driver_note__trip_leg_driver_note_type ON reservations.trip_leg_driver_note
+( 
+	trip_leg_driver_note_type_id ASC
+);
+
+CREATE INDEX ix__trip_leg_phone__phone_id ON reservations.trip_leg_phone
+( 
+	phone_id ASC
+);
+
+CREATE INDEX ix__trip_leg_phone__trip_leg_id ON reservations.trip_leg_phone
+( 
+	trip_leg_id ASC
+);
+
+CREATE UNIQUE INDEX pk__trip_leg_status_log ON reservations.trip_leg_status_log
+( 
+	trip_leg_status_log_id ASC
+);
+
+CREATE INDEX ix__trip_leg_status_log__trip_leg ON reservations.trip_leg_status_log
+( 
+	trip_leg_id ASC
+);
+
+CREATE INDEX ix__trip_leg_status_log__trip_leg_status_reason_id ON reservations.trip_leg_status_log
+( 
+	trip_leg_status_reason_id ASC
+);
+
+CREATE INDEX ix__vehicle_attribute__vehicle_attribute_type_id ON providers.vehicle_attribute
+( 
+	vehicle_attribute_type_id ASC
+);
+
+CREATE INDEX ix__vehicle_attribute__vehicle_id ON providers.vehicle_attribute
+( 
+	vehicle_id ASC
+);
+
+CREATE INDEX fk__trip_leg_package_status_log__trip_leg_package_status ON reservations.trip_leg_package_status_log
+( 
+	trip_leg_package_status_id ASC
+);
+
+CREATE INDEX fk__trip_leg_package_status_log__trip_leg_package ON reservations.trip_leg_package_status_log
+( 
+	trip_leg_package_id ASC
+);
+
+CREATE INDEX ix__rideshare_trip_leg_status__transportation_provider_id ON lookups.rideshare_trip_leg_status
+( 
+	transportation_provider_id ASC
+);
+
+CREATE INDEX ix__rideshare_trip_leg_status__trip_leg_status_id ON lookups.rideshare_trip_leg_status
+( 
+	trip_leg_status_id ASC
+);
+
+CREATE INDEX ix__rideshare_trip_leg_status__trip_leg_status_reason_id ON lookups.rideshare_trip_leg_status
+( 
+	trip_leg_status_reason_id ASC
+);
+
+CREATE INDEX ix__rideshare_trip_leg_status__rideshare_user_type_id ON lookups.rideshare_trip_leg_status
+( 
+	rideshare_user_type_id ASC
+);
+
+CREATE INDEX ix__trip_leg_driver_location__trip_leg_id ON reservations.trip_leg_driver_location
+( 
+	trip_leg_id ASC
+);
+
+CREATE INDEX ix__trip_leg_driver_location__driver_id ON reservations.trip_leg_driver_location
+( 
+	driver_id ASC
+);
+
+CREATE INDEX xif3service_level ON lookups.service_level
+( 
+	service_level_id ASC
+);
+
+CREATE INDEX fk__service_level__passenger_care_level ON lookups.service_level
+( 
+	passenger_care_level_id ASC
+);
+
+CREATE INDEX fk__service_level__trip_mode ON lookups.service_level
+( 
+	trip_mode_id ASC
+);
+
+CREATE SEQUENCE clients.df__seq__client_contact__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__alternate_contact_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE applications.seq__application_global_setting__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__application_setting__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__application_title__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__boundary_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__city_list__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE  2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE clients.seq__client__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE clients.seq__client_address__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__client_address_use__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__client_contact_department__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__client_contact_role__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE clients.seq__client_purpose_code__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__client_vertical__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__communication_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__correspondence_reason__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__county_list__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE  2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE applications.seq__coverage_area__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE accounting.seq__coverage_area_boundary__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE applications.seq__coverage_area_history__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 9223372036854770000
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE providers.seq__daily_capacity__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE providers.seq__driver__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__driver_document_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE providers.seq__driver_email__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__driver_email_use__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE providers.seq__driver_phone__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__driver_phone_use__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__event_type_classification__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__file_ingestion_frequency__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__file_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__frequency_day_of_week__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__frequency_period__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE providers.seq__hours_of_operation__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE users.seq__identity_access_azure_ad_history__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 9223372036854770000
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE users.seq__identity_access_cognito_history__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 9223372036854770000
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__ingestion_cron_job__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__insurance_coverage_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__insurance_limit_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__insurance_strength__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__insurance_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__legal_entity_status__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__legal_entity_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__messaging_method__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__note_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__notification_method_value_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE communications.seq__notification_template__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE communications.seq__notification_template_variable_map__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE contacts.seq__opted_out_phone__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE contacts.seq__opted_out_phone_history__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE clients.seq__parent_organization__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE passengers.seq__passenger__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE passengers.seq__passenger_address__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__passenger_address_use__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__passenger_authorization_reason__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__passenger_care_level__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE clients.seq__passenger_eligibility_legacy_setting__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE clients.seq__passenger_eligibility_setting__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE clients.seq__passenger_file_ingestion_program_setting__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE passengers.seq__passenger_identification__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__passenger_identification_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__passenger_note_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE passengers.seq__passenger_phone__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__passenger_phone_use__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE passengers.seq__passenger_service_plan_history__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 9223372036854775807
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE users.seq__permission__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__permission_action__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__permission_resource__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__permission_scope__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__phone_number_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__plan_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 327657
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__preferred_language__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE clients.seq__program_group__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__provider_note_category__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__purpose_code_category__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__qualification_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE reservations.seq__reservation__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE reservations.seq__rideshare_trip_leg_detail__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE reservations.seq__rideshare_trip_leg_schedule__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__rideshare_trip_leg_schedule_status__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 327657
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__rideshare_trip_leg_status__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE reservations.seq__rideshare_trip_leg_status_log__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__rideshare_user_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__rideshare_vehicle_type_id
+INCREMENT BY 1
+START WITH 1
+NO CYCLE;
+
+CREATE SEQUENCE clients.seq__service_plan__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE clients.seq__service_segment__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE communications.seq__sms_message_tracking__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 9223372036854775807
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__sms_status__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__source_system__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE applications.seq__support_agreement__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__support_agreement_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE dba.seq__table_history__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__time_zone__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__transport_role_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE providers.seq__transportation_provider__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE providers.seq__transportation_provider_address__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__transportation_provider_address_use__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE providers.seq__transportation_provider_coverage_area__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE providers.seq__transportation_provider_coverage_area_history__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 9223372036854770000
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__transportation_provider_document_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE providers.seq__transportation_provider_email__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__transportation_provider_email_use__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE providers.seq__transportation_provider_insurance__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE providers.seq__transportation_provider_note__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE providers.seq__transportation_provider_note_comment__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE providers.seq__transportation_provider_parent__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__transportation_provider_pay_status__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE providers.seq__transportation_provider_phone__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__transportation_provider_phone_use__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__transportation_provider_setting_option__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 327657
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__transportation_provider_tier__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE users.seq__transportation_provider_user_onboarding__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__transportation_provider_user_onboarding_status__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__transportation_provider_user_onboarding_status__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 327657
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__transportation_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE reservations.seq__trip_leg__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE reservations.seq__trip_leg_charge__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE reservations.seq__trip_leg_driver_location__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 9223372036854775807
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__trip_leg_driver_note_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__trip_leg_override_reason__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE reservations.seq__trip_leg_package__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__trip_leg_package_reject_reason__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__trip_leg_package_status__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE reservations.seq__trip_leg_package_status_log__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE reservations.seq__trip_leg_package_trip_leg__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__trip_leg_passenger_note_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__trip_leg_status__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE reservations.seq__trip_leg_status_log__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__trip_leg_status_reason__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__trip_mode__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__unsubscribe_requestor_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE users.seq__user_account__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE users.seq__user_account_login_log__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 9223372036854775807
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE users.seq__user_account_support_agreement_history__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__user_category_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE users.seq__user_group__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE users.seq__user_role__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE reservations.seq__vacation__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE providers.seq__vehicle__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE lookups.seq__vehicle_attribute_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__vehicle_color__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__vehicle_document_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__vehicle_type__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 32767
+START WITH 1
+CACHE 1
+CYCLE;
+
+CREATE SEQUENCE lookups.seq__zip_code_list__id
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE  2147483647
+START WITH 1
+CACHE 1
+NO CYCLE;
+
+CREATE SEQUENCE topology.topology_id_seq
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 2147483647
+START WITH 1
+CACHE 1
+CYCLE;
+
+ALTER TABLE rideshare_vehicle_type
+  ALTER COLUMN rideshare_vehicle_type_id SET DEFAULT nextval('.seq__rideshare_vehicle_type__id'::regclass);
+
