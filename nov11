@@ -1,0 +1,139 @@
+
+CREATE TABLE E_28
+( 
+	fgdf                 varchar(18)  NOT NULL ,
+	fddxf                varchar(18)  NULL  
+);
+
+ALTER TABLE E_28
+	ADD CONSTRAINT XPKE_28 PRIMARY KEY (fgdf);
+
+CREATE TABLE Ref_Home_Peril
+( 
+	Insight_Product      varchar(60)  NOT NULL ,
+	Geolocation_Key_Type varchar(32)  NOT NULL ,
+	Geolocation_Key_Value varchar(20)  NOT NULL ,
+	Coverage_Type        varchar(15)  NOT NULL ,
+	Peril_Type           varchar(15)  NOT NULL ,
+	Peril_Zone_Type      varchar(15)  NOT NULL ,
+	Version              varchar(15)  NOT NULL ,
+	Score                integer  NOT NULL ,
+	Effective_Start_Date date  NOT NULL ,
+	Effective_End_Date   date  NOT NULL ,
+	Add_Reference        varchar(10)  NOT NULL ,
+	Mod_Reference        varchar(10)  NULL ,
+	Row_Created_Timestamp timestamp  NOT NULL ,
+	Row_Updated_Timestamp timestamp  NOT NULL ,
+	Row_Created_Batch_ID integer  NOT NULL ,
+	Row_Updated_Batch_ID integer  NOT NULL ,
+	Home_Peril_Key       integer  NOT NULL ,
+	Delta_Flag           varchar(1)  NOT NULL  
+);
+
+ALTER TABLE Ref_Home_Peril
+	ADD CONSTRAINT XPKRef_Home_Peril PRIMARY KEY (Home_Peril_Key);
+
+ALTER TABLE Ref_Home_Peril
+	ADD CONSTRAINT XAK1Ref_Home_Peril UNIQUE (Insight_Product,Geolocation_Key_Type,Geolocation_Key_Value,Coverage_Type,Peril_Type,Peril_Zone_Type,Version,Effective_Start_Date,Effective_End_Date);
+
+CREATE TABLE Ref_Home_Peril_Insight_Manager
+( 
+	Insight_Product      varchar(60)  NOT NULL ,
+	Insight_Brand        varchar(60)  NOT NULL ,
+	Insight              varchar(32)  NOT NULL ,
+	Coverage_Type        varchar(15)  NOT NULL ,
+	Peril_Type           varchar(15)  NOT NULL ,
+	Peril_Zone_Type      varchar(15)  NOT NULL ,
+	Version              varchar(15)  NOT NULL ,
+	Label                varchar(32)  NOT NULL ,
+	Address_Detail_PID   integer  NULL ,
+	Raster_Point         integer  NULL ,
+	Street_Locality_PID  integer  NULL ,
+	Locality_PID         integer  NULL ,
+	Postcode             integer  NULL ,
+	State                integer  NULL ,
+	Abs_Version          integer  NULL ,
+	Mesh_Block           integer  NULL ,
+	SA1                  integer  NULL ,
+	SA2                  integer  NULL ,
+	SA3                  integer  NULL ,
+	SA4                  integer  NULL ,
+	Effective_Start_Date date  NOT NULL ,
+	Effective_End_Date   date  NOT NULL ,
+	Add_Reference        varchar(10)  NOT NULL ,
+	Mod_Reference        varchar(10)  NULL ,
+	Row_Created_Timestamp timestamp  NOT NULL ,
+	Row_Updated_Timestamp timestamp  NOT NULL ,
+	Row_Created_Batch_ID integer  NOT NULL ,
+	Row_Updated_Batch_ID integer  NOT NULL ,
+	Home_Peril_Insight_Manager_Key integer  NOT NULL ,
+	Delta_Flag           varchar(1)  NOT NULL  
+);
+
+ALTER TABLE Ref_Home_Peril_Insight_Manager
+	ADD CONSTRAINT XPKRef_Home_Peril_Insight_Manager PRIMARY KEY (Home_Peril_Insight_Manager_Key);
+
+ALTER TABLE Ref_Home_Peril_Insight_Manager
+	ADD CONSTRAINT XAK1Ref_Home_Peril_Insight_Manager UNIQUE (Insight_Product,Insight_Brand,Insight,Coverage_Type,Peril_Type,Peril_Zone_Type,Version,Effective_Start_Date,Effective_End_Date);
+
+CREATE TABLE sor_home_peril
+( 
+	Insight_Product      varchar(60)  NOT NULL ,
+	Geolocation_Key_Type varchar(32)  NOT NULL ,
+	Geolocation_Key_Value varchar(20)  NOT NULL ,
+	Coverage_Type        varchar(15)  NOT NULL ,
+	Peril_Type           varchar(15)  NOT NULL ,
+	Peril_Zone_Type      varchar(15)  NOT NULL ,
+	Version              varchar(15)  NOT NULL ,
+	Score                integer  NOT NULL ,
+	Effective_Start_Date date  NOT NULL ,
+	Add_Reference        varchar(10)  NOT NULL ,
+	Mod_Reference        varchar(10)  NULL  
+);
+
+CREATE TABLE sor_home_peril_ins_mgr
+( 
+	Insight_Product      varchar(60)  NOT NULL ,
+	Insight_Brand        varchar(60)  NOT NULL ,
+	Insight              varchar(32)  NOT NULL ,
+	Coverage_Type        varchar(15)  NOT NULL ,
+	Peril_Type           varchar(15)  NOT NULL ,
+	Peril_Zone_Type      varchar(15)  NOT NULL ,
+	Version              varchar(15)  NOT NULL ,
+	Label                varchar(32)  NOT NULL ,
+	Address_Detail_PID   integer  NULL ,
+	Raster_Point         integer  NULL ,
+	Street_Locality_PID  integer  NULL ,
+	Locality_PID         integer  NULL ,
+	Postcode             integer  NULL ,
+	State                varchar(18)  NULL ,
+	Abs_Version          integer  NULL ,
+	Mesh_Block           integer  NULL ,
+	SA1                  integer  NULL ,
+	SA2                  integer  NULL ,
+	SA3                  integer  NULL ,
+	SA4                  integer  NULL ,
+	Effective_Start_Date date  NOT NULL ,
+	Add_Reference        varchar(10)  NOT NULL ,
+	Mod_Reference        varchar(10)  NULL  
+);
+
+CREATE VIEW ins_api_home_peril_vw ( Insight_Product,Geolocation_Key_Type,Geolocation_Key_Value,Coverage_Type,Peril_Type,Peril_Zone_Type,Version,Score,Effective_Start_Date,Effective_End_Date,Delta_Flag )
+ AS 
+	SELECT Ref_Home_Peril.Insight_Product,Ref_Home_Peril.Geolocation_Key_Type,Ref_Home_Peril.Geolocation_Key_Value,Ref_Home_Peril.Coverage_Type,Ref_Home_Peril.Peril_Type,Ref_Home_Peril.Peril_Zone_Type,Ref_Home_Peril.Version,Ref_Home_Peril.Score,Ref_Home_Peril.Effective_Start_Date,Ref_Home_Peril.Effective_End_Date,Ref_Home_Peril.Delta_Flag
+		FROM Ref_Home_Peril ;
+
+CREATE VIEW ins_api_home_peril_ins_mgr_vw ( Insight_Product,Insight_Brand,Insight,Coverage_Type,Peril_Type,Peril_Zone_Type,Version,Label,Address_Detail_PID,Raster_Point,Street_Locality_PID,Locality_PID,Postcode,State,Abs_Version,Mesh_Block,SA1,SA2,SA3,SA4,Effective_Start_Date,Effective_End_Date,Delta_Flag )
+ AS 
+	SELECT Ref_Home_Peril_Insight_Manager.Insight_Product,Ref_Home_Peril_Insight_Manager.Insight_Brand,Ref_Home_Peril_Insight_Manager.Insight,Ref_Home_Peril_Insight_Manager.Coverage_Type,Ref_Home_Peril_Insight_Manager.Peril_Type,Ref_Home_Peril_Insight_Manager.Peril_Zone_Type,Ref_Home_Peril_Insight_Manager.Version,Ref_Home_Peril_Insight_Manager.Label,Ref_Home_Peril_Insight_Manager.Address_Detail_PID,Ref_Home_Peril_Insight_Manager.Raster_Point,Ref_Home_Peril_Insight_Manager.Street_Locality_PID,Ref_Home_Peril_Insight_Manager.Locality_PID,Ref_Home_Peril_Insight_Manager.Postcode,Ref_Home_Peril_Insight_Manager.State,Ref_Home_Peril_Insight_Manager.Abs_Version,Ref_Home_Peril_Insight_Manager.Mesh_Block,Ref_Home_Peril_Insight_Manager.SA1,Ref_Home_Peril_Insight_Manager.SA2,Ref_Home_Peril_Insight_Manager.SA3,Ref_Home_Peril_Insight_Manager.SA4,Ref_Home_Peril_Insight_Manager.Effective_Start_Date,Ref_Home_Peril_Insight_Manager.Effective_End_Date,Ref_Home_Peril_Insight_Manager.Delta_Flag
+		FROM Ref_Home_Peril_Insight_Manager ;
+
+CREATE VIEW ins_home_peril_vw ( Insight_Product,Geolocation_Key_Type,Geolocation_Key_Value,Coverage_Type,Peril_Type,Peril_Zone_Type,Version,Score,Effective_Start_Date,Effective_End_Date,Add_Reference,Mod_Reference )
+ AS 
+	SELECT Ref_Home_Peril.Insight_Product,Ref_Home_Peril.Geolocation_Key_Type,Ref_Home_Peril.Geolocation_Key_Value,Ref_Home_Peril.Coverage_Type,Ref_Home_Peril.Peril_Type,Ref_Home_Peril.Peril_Zone_Type,Ref_Home_Peril.Version,Ref_Home_Peril.Score,Ref_Home_Peril.Effective_Start_Date,Ref_Home_Peril.Effective_End_Date,Ref_Home_Peril.Add_Reference,Ref_Home_Peril.Mod_Reference
+		FROM Ref_Home_Peril ;
+
+CREATE VIEW ins_home_peril_ins_mgr_vw ( Insight_Product,Insight_Brand,Insight,Coverage_Type,Peril_Type,Peril_Zone_Type,Version,Label,Address_Detail_PID,Raster_Point,Street_Locality_PID,Locality_PID,Postcode,State,Abs_Version,Mesh_Block,SA1,SA2,SA3,SA4,Effective_Start_Date,Effective_End_Date,Add_Reference,Mod_Reference )
+ AS 
+	SELECT Ref_Home_Peril_Insight_Manager.Insight_Product,Ref_Home_Peril_Insight_Manager.Insight_Brand,Ref_Home_Peril_Insight_Manager.Insight,Ref_Home_Peril_Insight_Manager.Coverage_Type,Ref_Home_Peril_Insight_Manager.Peril_Type,Ref_Home_Peril_Insight_Manager.Peril_Zone_Type,Ref_Home_Peril_Insight_Manager.Version,Ref_Home_Peril_Insight_Manager.Label,Ref_Home_Peril_Insight_Manager.Address_Detail_PID,Ref_Home_Peril_Insight_Manager.Raster_Point,Ref_Home_Peril_Insight_Manager.Street_Locality_PID,Ref_Home_Peril_Insight_Manager.Locality_PID,Ref_Home_Peril_Insight_Manager.Postcode,Ref_Home_Peril_Insight_Manager.State,Ref_Home_Peril_Insight_Manager.Abs_Version,Ref_Home_Peril_Insight_Manager.Mesh_Block,Ref_Home_Peril_Insight_Manager.SA1,Ref_Home_Peril_Insight_Manager.SA2,Ref_Home_Peril_Insight_Manager.SA3,Ref_Home_Peril_Insight_Manager.SA4,Ref_Home_Peril_Insight_Manager.Effective_Start_Date,Ref_Home_Peril_Insight_Manager.Effective_End_Date,Ref_Home_Peril_Insight_Manager.Add_Reference,Ref_Home_Peril_Insight_Manager.Mod_Reference
+		FROM Ref_Home_Peril_Insight_Manager ;
