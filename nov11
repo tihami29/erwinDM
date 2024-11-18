@@ -137,3 +137,22 @@ CREATE VIEW ins_home_peril_ins_mgr_vw ( Insight_Product,Insight_Brand,Insight,Co
  AS 
 	SELECT Ref_Home_Peril_Insight_Manager.Insight_Product,Ref_Home_Peril_Insight_Manager.Insight_Brand,Ref_Home_Peril_Insight_Manager.Insight,Ref_Home_Peril_Insight_Manager.Coverage_Type,Ref_Home_Peril_Insight_Manager.Peril_Type,Ref_Home_Peril_Insight_Manager.Peril_Zone_Type,Ref_Home_Peril_Insight_Manager.Version,Ref_Home_Peril_Insight_Manager.Label,Ref_Home_Peril_Insight_Manager.Address_Detail_PID,Ref_Home_Peril_Insight_Manager.Raster_Point,Ref_Home_Peril_Insight_Manager.Street_Locality_PID,Ref_Home_Peril_Insight_Manager.Locality_PID,Ref_Home_Peril_Insight_Manager.Postcode,Ref_Home_Peril_Insight_Manager.State,Ref_Home_Peril_Insight_Manager.Abs_Version,Ref_Home_Peril_Insight_Manager.Mesh_Block,Ref_Home_Peril_Insight_Manager.SA1,Ref_Home_Peril_Insight_Manager.SA2,Ref_Home_Peril_Insight_Manager.SA3,Ref_Home_Peril_Insight_Manager.SA4,Ref_Home_Peril_Insight_Manager.Effective_Start_Date,Ref_Home_Peril_Insight_Manager.Effective_End_Date,Ref_Home_Peril_Insight_Manager.Add_Reference,Ref_Home_Peril_Insight_Manager.Mod_Reference
 		FROM Ref_Home_Peril_Insight_Manager ;
+
+
+CREATE TABLE E_28
+( 
+	fgdf                 varchar(18)  NOT NULL ,
+	fddxf                varchar(18)  NULL  
+);
+
+ALTER TABLE E_28
+	ADD CONSTRAINT XPKE_28 PRIMARY KEY (fgdf);
+
+CREATE TABLE E_29
+( 
+	fd                   varchar(18)  NOT NULL ,
+	fh                   varchar(18)  NULL  
+);
+
+ALTER TABLE E_29
+	ADD CONSTRAINT XPKE_29 PRIMARY KEY (fd);
